@@ -1,0 +1,61 @@
+server {
+    listen 80;
+    server_name example.com www.example.com;
+
+    root /var/www/pala-website;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location /sylvie-stl {   
+        autoindex              on;
+        autoindex_exact_size   off;
+        autoindex_localtime    on;
+        add_before_body        /.autoindex/header.html;
+        add_after_body         /.autoindex/footer.html;
+    }
+
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|mp4|m4s|m3u8)$ {
+        expires 365d;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;  # Adjust the PHP version if needed
+    }
+
+    # Gzip Settings
+    gzip on;
+    gzip_disable "msie6";
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 4;  # Lowered compression level
+    gzip_buffers 4 8k;  # Adjusted buffer size
+    gzip_http_version 1.1;
+    gzip_min_length 256;
+    gzip_types
+        application/atom+xml
+        application/geo+json
+        application/javascript
+        application/x-javascript
+        application/json
+        application/ld+json
+        application/manifest+json
+        application/rdf+xml
+        application/rss+xml
+        application/xhtml+xml
+        application/xml
+        font/eot
+        font/otf
+        font/ttf
+        image/svg+xml
+        text/css
+        text/javascript
+        text/plain
+        text/xml;
+
+    # Additional configuration, such as SSL/TLS settings, can go here
+}
+
