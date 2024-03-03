@@ -4,10 +4,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database configuration
-$servername = "localhost";
-$username = "twinlizzie";
-$password = "";
-$dbname = "notes_db";
+$config = require 'config.php';
+$servername = $config['servername'];
+$username = $config['username'];
+$password = $config['password'];
+$dbname = $config['dbname'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
