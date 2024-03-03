@@ -1,4 +1,5 @@
 # palagov.tv
+Locally-run, self-hosted TikTok, Medium and 'Twitter' alternative 
 
 Demo:
 
