@@ -182,22 +182,21 @@ background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZ
      margin: 0 auto;
     /* Center the video horizontally */
 }
- .side-menu {
-     position: fixed;
-     top: 50px;
-    /* Adjust based on the height of your header */
-     left: -250px;
-    /* Hide initially */
-     width: 250px;
-    /* Occupy full width by default */
-     height: 100%;
-     background-color: #fff;
-     border-right: 1px solid #c9c9c9;
-     /*box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);*/
-     transition: left 0.3s ease;
-     z-index: 998;
-    /* Ensure the menu is behind the header */
+.side-menu {
+    position: fixed;
+    top: 50px;
+    left: -250px;
+    width: 250px;
+    height: calc(100% - 50px);
+    background-color: #fff;
+    border-right: 1px solid #c9c9c9;
+    transition: left 0.3s ease;
+    z-index: 998;
+    overflow-y: scroll;
+    padding-bottom: 50px; /* Add padding to start content below the top 50px */
 }
+
+
  .side-menu.active {
      left: 0;
 }
