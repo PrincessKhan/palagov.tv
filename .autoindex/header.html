@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Directory Listing</title>
+    <meta charset="utf-8" />
+    <!-- Styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index-styles/light.min.css">
+    <link rel="stylesheet" href="/index-styles/font-awesome.min.css">
+    <style>	
+		
+	pre {
+	    font-size: 1.2em;
+	    line-height: 2.5;	
+    }	
+		
+	.main {
+		text-align: center;
+	    margin-bottom: 15px;	
+    }
+    
+    #main-link {
+	    font-size: 1.2em;	
+	}
+    
+    #title {
+		font-size: 1.2em;		
+	    text-align: center;	
+	}	
+	
+		
+	#container {
+	    width: 100%;
+	    height: 100%;
+	}
+	
+	.main-scene {
+	    text-align: center;
+	    width: 300px;
+	    height: 300px;
+	    margin: 0 auto; /* Center the container horizontally */
+	    overflow: hidden; /* Hide overflow content if it exceeds the specified size */ 
+	    border: 2px solid black; /* Add a black border */
+	}		
+	
+/* Define fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Define fade-out animation */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Apply fade-in animation */
+.stl-view.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Apply fade-out animation */
+.stl-view.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+		
+	@media (max-width: 640px) {
+		/* Apply styles to the date modified and file size */
+		#listing div pre {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	
+		/* Apply styles specifically to the date modified */
+		#listing div pre::after {
+			content: attr(data-date);
+			display: inline-block;
+			margin-left: 10px;
+		}
+	
+		/* Apply styles specifically to the file size */
+		#listing div pre::before {
+			content: attr(data-size);
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+	    pre {
+		    overflow: hidden;
+		    max-width: 500px;
+		    display: flex;
+		    flex-direction: column;	
+		}	
+	}
+	</style>
+	<script src="/index-styles/stl-viewer-all.js?v=2.27" defer></script>
+</head>
+<body>
+  <div id="title">
+      <span>Directory Listing</span>
+      <span class="stats" id='file-stats'></span>
+      <span class="stats" id='dir-stats'></span>
+  </div>	
+	<div class="main-scene"></div>	
+	<div id="main-link" class="main">Loading...</div>
+  <div id='listing'>
+      <div>
