@@ -16,3 +16,5 @@ https://palagov.tv/sylvie-stl
 Our locally-run Gitlab:
 
 https://git.palagov.tv/khanumballz
+
+Use with Cloudflare Tunnel

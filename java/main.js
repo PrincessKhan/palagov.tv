@@ -1,3 +1,6 @@
+//var mainElement = document.querySelector('main');
+//mainElement.classList.add('fade-in');
+
 document.getElementById('menu-toggle').addEventListener('click', function() {
     if (window.innerWidth <= 896) {
         document.getElementById('side-menu').classList.toggle('active');
@@ -102,8 +105,8 @@ handleDirectLink();
 window.addEventListener('hashchange', handleHashChange);
 
 document.addEventListener("DOMContentLoaded", function() {
-    var mainElement = document.querySelector('main');
-    mainElement.classList.add('fade-in');
+    //var mainElement = document.querySelector('main');
+    //mainElement.classList.add('fade-in');
 
     if (window.innerWidth >= 896) {
         document.getElementById('side-menu').classList.add('active');
