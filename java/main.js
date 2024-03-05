@@ -1,6 +1,78 @@
 //var mainElement = document.querySelector('main');
 //mainElement.classList.add('fade-in');
 
+var videoShuffleEnabled = false;
+var videoPlayingFromURL = false;
+var soundUnmuted = false;
+var videoFirstTime = true;
+var windowPathname = window.location.pathname;
+var vidcheckhash = window.location.hash;
+
+var handleScroll;
+var handleTouchStart;
+var handleTouchEnd;
+var handleKeyDown;
+
+if (windowPathname === '/') {
+    videoShuffleEnabled = true;
+}
+
+function toggleSound() {
+    var videos = document.querySelectorAll('.video-player');
+    // Toggle sound for each video
+    videos.forEach(function(video) {
+        // Check if video is muted
+        if (video.muted) {
+            console.log('Video is muted. Unmuting...');
+            // Unmute the video
+            video.muted = false;
+            console.log('Video unmuted.');
+        }
+    });
+    var soundToggleBtn = document.getElementById('soundToggleBtn');
+    soundToggleBtn.classList.add('hidden');
+}
+
+// Function to reset scroll behavior and remove video shuffling event listeners
+function resetScrollBehavior() {
+    // Disable video shuffling functionality
+    videoShuffleEnabled = false;
+
+    // Reset overflow to auto
+    document.body.style.overflow = 'auto';
+    document.body.style.height = '';
+
+    // Remove event listeners
+    if (typeof handleScroll === 'function') {
+        window.removeEventListener('wheel', handleScroll);
+        console.log('Event listeners removed.')
+    }
+    if (typeof handleTouchStart === 'function') {
+        window.removeEventListener('touchstart', handleTouchStart);
+        console.log('Event listeners removed.')
+    }
+    if (typeof handleTouchEnd === 'function') {
+        window.removeEventListener('touchend', handleTouchEnd);
+        console.log('Event listeners removed.')
+    }
+    if (typeof handleKeydown === 'function') {
+        window.removeEventListener('keydown', handleKeydown);
+        console.log('Event listeners removed.')
+    }
+}
+
+// Function to stop all videos
+function stopAllVideos() {
+    // Get all video elements
+    var videos = document.querySelectorAll('.video-player');
+
+    // Pause each video
+    videos.forEach(function(video) {
+        video.pause();
+        video.setAttribute('controls', '');
+    });
+}
+
 document.getElementById('menu-toggle').addEventListener('click', function() {
     if (window.innerWidth <= 896) {
         document.getElementById('side-menu').classList.toggle('active');
@@ -11,6 +83,7 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
 function toggleChapter(chapterId) {
     // Show the #latest-videos chapter if the #video hashtag is used
     if (chapterId.includes('video')) {
+        videoPlayingFromURL = true;
         var videoChapter = document.getElementById('latest-vids');
         if (videoChapter) {
             videoChapter.style.display = 'block';
@@ -22,10 +95,18 @@ function toggleChapter(chapterId) {
                 if (targetVideo) {
                     var offsetTop = targetVideo.offsetTop;
                     window.scrollTo(0, offsetTop);
+                    videoShuffleEnabled = true;
                 }
             }
         }
     } else {
+        if (chapterId.includes('latest-vids')) {
+            videoShuffleEnabled = true;
+        } else {
+            videoShuffleEnabled = false;
+            resetScrollBehavior();
+            stopAllVideos();
+        }
         // Hide all chapters
         var chapters = document.querySelectorAll('.chapter');
         chapters.forEach(function(chapter) {
@@ -43,6 +124,14 @@ function toggleChapter(chapterId) {
 
     // Update the URL hash
     history.replaceState(null, null, '#' + chapterId);
+
+    if (videoFirstTime == false) {
+        stopAllVideos();
+        if (videoShuffleEnabled == false) {
+            var soundToggleBtn = document.getElementById('soundToggleBtn');
+            soundToggleBtn.classList.add('hidden');
+        }
+    }
 }
 
 // Function to handle direct links
@@ -56,6 +145,7 @@ function handleDirectLink() {
                 top: 0,
                 behavior: 'auto'
             });
+            videoShuffleEnabled = true;
         } else {
             // Toggle visibility for other chapters, scroll, and update URL hash
             toggleChapter(targetId);
@@ -89,6 +179,7 @@ document.querySelectorAll('a').forEach(function(link) {
                     behavior: 'auto'
                 });
                 history.replaceState(null, null, '#' + targetId);
+                videoShuffleEnabled = true;
             } else {
                 // Toggle visibility for other chapters, scroll, and update URL hash
                 toggleChapter(targetId);
@@ -111,87 +202,149 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth >= 896) {
         document.getElementById('side-menu').classList.add('active');
     }
+    console.log('DOM content loaded');
 
-console.log('DOM content loaded');
+    if (videoShuffleEnabled == true) {
 
-var hasInteracted = false; // Flag to track if the user has interacted
+        console.log('Mouse scroll disabled!')
+        var videos = document.querySelectorAll('.video-player'); // Select all video elements
+        var currentVideoIndex = videos.length - 1; // Index of the current video (start at the last index)
+        var isScrolling = false; // Flag to track scrolling
+        var lastScrollTime = Date.now(); // Track the time of the last scroll event
+        var touchStartY; // Variable to store the initial touch position
 
-// Initialize Video.js players and handle scroll event
-function initializePlayersAndHandleScroll() {
-    // Initialize Video.js players and store references
-    var players = {};
-    document.querySelectorAll('.video-player').forEach(function(video) {
-        var videoId = video.id;
-        console.log('Initializing player for video ID:', videoId);
-        var player = videojs(videoId);
+        // Remove the '#' symbol from the hash
 
-        // Initialize quality levels for the player
-        player.qualityLevels();
-        console.log('Player initialized for video ID:', videoId, player);
+        if (videoPlayingFromURL == true) {
+            var videoPickHash = window.location.hash;
+            var videoHashId = videoPickHash.substring(1);
 
-        // Store player reference
-        players[videoId] = player;
-    });
+            console.log('Video ID:', videoHashId);
 
-    // Function to handle scroll event
-    function handleScroll(entries) {
-        entries.forEach(function(entry) {
-            var videoId = entry.target.id;
-            var player = players[videoId];
-            var video = document.getElementById(videoId); // Access the video element
+            var playerHashId = videoHashId.replace('video', 'player');
 
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
-                // Video is at least 50% visible, autoplay or resume playback
-                if (player) {
-                    player.play();
-                    // Center the player and lock to the middle of the screen for 3 seconds
-                    var scrollY = window.scrollY;
-                    var windowHeight = window.innerHeight;
-                    var playerTop = video.getBoundingClientRect().top + scrollY;
-                    var playerHeight = video.offsetHeight;
-		    var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
-                    // Disable scrolling temporarily
-                    // Set the scroll position to center the player
-                    window.scrollTo({top: scrollTop, behavior: 'smooth'});
-	            setTimeout(function(){
-		    document.body.style.overflow = 'hidden';
-		    document.body.style.height = '100%';
-		    }, 200);;
-                    setTimeout(function() {
-                        // Re-enable scrolling after 3 seconds
-                        document.body.style.overflow = '';
-			document.body.style.height = '';
-                    }, 2000);
-                }
-            } else {
-                // Video is out of view, pause playback and hide the video
-                if (player && hasInteracted) {
-                    player.pause();
+            hashedVideo = document.getElementById(playerHashId);
+            hashedVideo.play();
+            var soundToggleBtn = document.getElementById('soundToggleBtn');
+            soundToggleBtn.classList.remove('hidden');
+            soundUnmuted = true;
+        }
+
+        // Disable scrolling by default
+        document.body.style.overflow = 'hidden';
+        document.body.style.height = '100%';
+
+        // Function to handle shuffling between videos
+        function shuffleVideos(deltaY) {
+            if (!isScrolling && (Date.now() - lastScrollTime) > 500) {
+                if (Math.abs(deltaY) > 50) {
+                    isScrolling = true;
+                    // Determine the direction of the scroll
+                    if (deltaY > 0) {
+                        // Scroll down, shift to the previous video element
+                        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+                    } else {
+                        // Scroll up, shift to the next video element
+                        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                    }
+
+                    var targetVideo = videos[currentVideoIndex];
+                    if (targetVideo) {
+                        // Pause previous video
+                        videos.forEach(function(video) {
+                            video.pause();
+                        });
+
+                        // Play target video
+                        targetVideo.play();
+                        console.log("VIDEO STARTED PLAYING!")
+
+                        videoFirstTime = false;
+
+                        if (soundUnmuted == false) {
+                            var soundToggleBtn = document.getElementById('soundToggleBtn');
+                            soundToggleBtn.classList.remove('hidden');
+                            soundUnmuted = true;
+                        }
+
+                        // Center the target player
+                        var scrollY = window.scrollY;
+                        var windowHeight = window.innerHeight;
+                        var playerTop = targetVideo.getBoundingClientRect().top + scrollY;
+                        var playerHeight = targetVideo.offsetHeight;
+                        var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
+                        // Set the scroll position to center the player
+                        window.scrollTo({
+                            top: scrollTop,
+                            behavior: 'smooth'
+                        });
+
+                        // Re-enable scrolling after 2 seconds
+                        setTimeout(function() {
+                            isScrolling = false;
+                            lastScrollTime = Date.now();
+                        }, 500);
+                    }
                 }
             }
+        }
+
+        // Function to handle scrolling event
+        handleScroll = function(event) {
+            // Prevent default scrolling behavior
+            event.preventDefault();
+
+            // Get deltaY for mouse wheel event
+            var deltaY = -event.deltaY || 0; // Invert deltaY for mouse wheel
+
+            shuffleVideos(deltaY);
+        }
+
+        // Function to handle touch start event
+        handleTouchStart = function(event) {
+            touchStartY = event.touches[0].clientY;
+        }
+
+        // Function to handle touch end event
+        handleTouchEnd = function(event) {
+            var touchEndY = event.changedTouches[0].clientY;
+            var deltaY = touchEndY - touchStartY;
+
+            shuffleVideos(deltaY);
+        }
+
+        // Function to handle keydown event
+        handleKeydown = function(event) {
+            var deltaY = 0;
+            // Determine deltaY based on key code
+            switch (event.keyCode) {
+                case 38: // Arrow up key
+                    deltaY = 100; // Invert deltaY for keyboard
+                    break;
+                case 40: // Arrow down key
+                    deltaY = -100; // Invert deltaY for keyboard
+                    break;
+                default:
+                    return;
+            }
+
+            shuffleVideos(deltaY);
+        }
+
+        // Add keydown event listener to the window
+        window.addEventListener('keydown', handleKeydown);
+        window.addEventListener('wheel', handleScroll);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+
+        var soundToggleBtn = document.getElementById('soundToggleBtn');
+
+        // Add event listener to the sound toggle button
+        soundToggleBtn.addEventListener('click', function() {
+            toggleSound();
         });
+
     }
-
-    // Set up Intersection Observer to detect when video enters viewport
-    var observer = new IntersectionObserver(handleScroll, {
-        threshold: 0.7
-    });
-
-    // Observe the visibility of each video player
-    document.querySelectorAll('.video-player').forEach(function(video) {
-        observer.observe(video);
-    });
-
-    // Set the flag to true to indicate interaction
-    hasInteracted = true;
-}
-
-// Call the function to initialize players and handle scroll event
-initializePlayersAndHandleScroll();
-
-
-
-
 
 
     // Image Lazy-Loader Code!
