@@ -70,6 +70,7 @@ function stopAllVideos() {
     videos.forEach(function(video) {
         video.pause();
         video.setAttribute('controls', '');
+        video.classList.remove('loading-animation');
     });
 }
 
