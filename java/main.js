@@ -230,6 +230,12 @@ document.addEventListener("DOMContentLoaded", function() {
             var playerHashId = videoHashId.replace('video', 'player');
 
             hashedVideo = document.getElementById(playerHashId);
+            
+			hashedVideo.addEventListener('canplay', function() {
+				hashedVideo.classList.remove('loading-animation');
+				hashedVideo.classList.add('playing');
+			});
+            
             hashedVideo.play();
             var soundToggleBtn = document.getElementById('soundToggleBtn');
             soundToggleBtn.classList.remove('hidden');
@@ -260,6 +266,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         videos.forEach(function(video) {
                             video.pause();
                         });
+
+						//targetVideo.addEventListener('loadstart', function() {
+						//	targetVideo.classList.add('loading-animation');
+						//});
+
+						// Remove loading animation class when video starts playing
+						targetVideo.addEventListener('canplay', function() {
+							targetVideo.classList.remove('loading-animation');
+							targetVideo.classList.add('playing');
+						});
 
                         // Play target video
                         targetVideo.play();

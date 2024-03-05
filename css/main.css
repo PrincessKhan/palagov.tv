@@ -204,6 +204,17 @@ background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZ
      text-align: center; /* This centers the content inside the player container */
      background-color: black !important;
 }
+
+.video-player.loading-animation {
+    filter: brightness(0); /* Initially set opacity to 0 to fade out */
+    transition: filter 1s ease; /* Apply a smooth transition effect */
+}
+
+.video-player.playing {
+    filter: brightness(1); /* Set opacity back to 1 when the video is playing */
+    transition: filter 1s ease; /* Apply a smooth transition effect */
+}
+
  iframe {
      max-width: 100%;
     /* Ensure the embedded video doesn't exceed the width of its container */
