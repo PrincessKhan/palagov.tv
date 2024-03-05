@@ -101,7 +101,13 @@ function toggleChapter(chapterId) {
         }
     } else {
         if (chapterId.includes('latest-vids')) {
-            videoShuffleEnabled = true;
+			if (videoFirstTime == false){
+				videoShuffleEnabled = false;
+                resetScrollBehavior();
+                stopAllVideos();				
+			} else {
+                videoShuffleEnabled = true;
+		    } 
         } else {
             videoShuffleEnabled = false;
             resetScrollBehavior();
