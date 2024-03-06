@@ -74,6 +74,24 @@ function stopAllVideos() {
     });
 }
 
+function showAllLoadingCubes() {
+    var loadingCubeContainer = document.querySelector('.loading-cube-container');
+		loadingCubeContainer.style.display = 'flex';
+		loadingCubeContainer.classList.remove('hidden');
+    console.log("Showing cube contianer!");
+}
+
+// Function to hide all loading cube containers
+function hideAllLoadingCubes() {
+    var loadingCubeContainer = document.querySelector('.loading-cube-container');
+    loadingCubeContainer.classList.add('hidden');
+    setTimeout(() => {
+        loadingCubeContainer.style.display = 'none';
+    }, 300); // Delay for smooth transition
+    console.log("Hiding cube contianer!");
+}
+
+
 document.getElementById('menu-toggle').addEventListener('click', function() {
     if (window.innerWidth <= 896) {
         document.getElementById('side-menu').classList.toggle('active');
@@ -232,9 +250,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             hashedVideo = document.getElementById(playerHashId);
             
+			hashedVideo.addEventListener('play', function() {
+				showAllLoadingCubes();			
+			});
+
 			hashedVideo.addEventListener('canplay', function() {
 				hashedVideo.classList.remove('loading-animation');
 				hashedVideo.classList.add('playing');
+				hideAllLoadingCubes();
 			});
             
             hashedVideo.play();
@@ -268,16 +291,19 @@ document.addEventListener("DOMContentLoaded", function() {
                             video.pause();
                         });
 
-						//targetVideo.addEventListener('loadstart', function() {
-						//	targetVideo.classList.add('loading-animation');
-						//});
+						showAllLoadingCubes()
 
 						// Remove loading animation class when video starts playing
 						targetVideo.addEventListener('canplay', function() {
 							targetVideo.classList.remove('loading-animation');
 							targetVideo.classList.add('playing');
+							hideAllLoadingCubes();
 						});
 
+                        targetVideo.addEventListener('playing', function() {
+					        hideAllLoadingCubes();
+					    });
+                        
                         // Play target video
                         targetVideo.play();
                         console.log("VIDEO STARTED PLAYING!")
