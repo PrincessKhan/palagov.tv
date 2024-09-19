@@ -1,0 +1,20 @@
+20 10
+@ 3 8
+C 18 8 "an inflatable canoe!"
+C 1 4 "an e-ink smartphone!"
+C 14 6 "a pellet extruder hotend!"
+S 11 8 "a scroll that says: 'We need Ego. Otherwise we become extensions of somebody else's.'"
+S 15 2 "a scroll that says: 'Practising gratitude is O.K. in moderation, yet growth and advancement is the essence of Life.'"
+D 1 8 "../games/map1_aug302024.txt"
+
+##################E#
+#....#.#...........#
+#...........#..S...#
+######.#############
+#C.....#....#......#
+#....#.#....#......#
+#....#.#C...#......#
+######.####.######.#
+#D.@.......S......C#
+####################
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Interactive Ouija Board</title>
+  <style>
+    @font-face {
+      font-family: 'BOREX2';
+      src: url('fonts/borex-khan.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'BOREX2', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fff; /* White background for printing */
+      color: #000; /* Black letters for printing */
+      margin: 0;
+    }
+    .board {
+      border: 4px solid #000;
+      padding: 40px;
+      width: 500px;
+      height: 600px;
+      text-align: center;
+      position: relative;
+      background-color: #fff; /* Ensure background is white */
+    }
+    .yes, .no, .goodbye {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    .alphabet {
+      margin-top: 20px;
+    }
+    .alphabet .letters {
+      display: flex;
+      justify-content: space-around;
+      font-size: 24px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .numbers {
+      margin-top: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .goodbye {
+      margin-top: 40px;
+    }
+    .selected-letters {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #000; /* Black for visibility */
+    }
+    .planchette {
+      display: none;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 2px solid #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.2s ease-in-out;
+    }
+    .letter {
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <div class="yes" data-value="Yes">Yes</div>
+    <div class="no" data-value="No">No</div>
+
+    <div class="alphabet">
+      <div class="letters">
+        <span class="letter">A</span>
+        <span class="letter">B</span>
+        <span class="letter">C</span>
+        <span class="letter">D</span>
+        <span class="letter">E</span>
+        <span class="letter">F</span>
+        <span class="letter">G</span>
+        <span class="letter">H</span>
+        <span class="letter">I</span>
+        <span class="letter">J</span>
+        <span class="letter">K</span>
+        <span class="letter">L</span>
+        <span class="letter">M</span>
+      </div>
+      <div class="letters">
+        <span class="letter">N</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">Q</span>
+        <span class="letter">R</span>
+        <span class="letter">S</span>
+        <span class="letter">T</span>
+        <span class="letter">U</span>
+        <span class="letter">V</span>
+        <span class="letter">W</span>
+        <span class="letter">X</span>
+        <span class="letter">Y</span>
+        <span class="letter">Z</span>
+      </div>
+    </div>
+
+    <div class="numbers">0 1 2 3 4 5 6 7 8 9</div>
+
+    <div class="goodbye" data-value="Goodbye">Goodbye</div>
+
+    <div class="planchette"></div>
+
+    <div class="selected-letters">Selected Letters: <span id="output"></span></div>
+  </div>
+
+<script>
+  // Planchette movement setup
+  const planchette = document.querySelector('.planchette');
+  const letters = document.querySelectorAll('.letter'); // Targeting individual letter spans
+  const yes = document.querySelector('.yes');
+  const no = document.querySelector('.no');
+  const goodbye = document.querySelector('.goodbye');
+  const output = document.getElementById('output');
+  
+  let selectedLetters = '';
+
+  // Move planchette and select letters
+  letters.forEach(letter => {
+    letter.addEventListener('click', function (e) {
+      const letterValue = e.target.innerText;
+      selectedLetters += letterValue;
+      output.innerText = selectedLetters;
+
+      // Move planchette to the clicked letter
+      const rect = e.target.getBoundingClientRect();
+      planchette.style.top = `${rect.top + window.scrollY - 20}px`;
+      planchette.style.left = `${rect.left + window.scrollX - 20}px`;
+    });
+  });
+
+  // Handle yes and no
+  yes.addEventListener('click', function () {
+    selectedLetters += ' Yes';
+    output.innerText = selectedLetters;
+
+    const rect = yes.getBoundingClientRect();
+    planchette.style.top = `${rect.top + window.scrollY - 20}px`;
+    planchette.style.left = `${rect.left + window.scrollX - 20}px`;
+  });
+
+  no.addEventListener('click', function () {
+    selectedLetters += ' No';
+    output.innerText = selectedLetters;
+
+    const rect = no.getBoundingClientRect();
+    planchette.style.top = `${rect.top + window.scrollY - 20}px`;
+    planchette.style.left = `${rect.left + window.scrollX - 20}px`;
+  });
+
+  // Goodbye action
+  goodbye.addEventListener('click', function () {
+    selectedLetters += ' Goodbye';
+    output.innerText = selectedLetters;
+
+    const rect = goodbye.getBoundingClientRect();
+    planchette.style.top = `${rect.top + window.scrollY - 20}px`;
+    planchette.style.left = `${rect.left + window.scrollX - 20}px`;
+  });
+</script>
+
+</body>
+</html>

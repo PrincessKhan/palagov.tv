@@ -1,0 +1,22 @@
+20 10
+P 3 8
+C 18 8 "an inflatable canoe!"
+C 1 4 "an e-ink smartphone!"
+C 14 6 "a pellet extruder hotend!"
+S 11 8 "a scroll that says: 'We need Ego. Otherwise we become extensions of somebody else's.'"
+S 15 2 "a scroll that says: 'A little bit of gratitude is nice. Too much gratitude will stifle your growth and extinguish your Life Force; causing you to devolve from a mammal, into an amoeba.'"
+S 13 4 "a scroll that says: 'From Kermadec, to Manuae -- we will show em' how it's done!'"
+C 8 6 "a 48v 750w e-bike!'"
+D 1 8 "../games/map1_aug302024_v5.txt"
+
+####################
+#....#.#...........#
+#...........#..S...#
+######.#############
+#C.....#....#S.....#
+#....#.#....#......#
+#....#.#C...#......#
+######.####.######.#
+#D.@.......S......C#
+#######E############
+

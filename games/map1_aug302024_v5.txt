@@ -1,0 +1,21 @@
+20 10
+P 1 1
+C 12 8 "a 3D Printer!"
+C 1 4 "a roll of 3D Printing Filament!"
+C 14 6 "an Orange Pi 5 Plus Single Board Computer!"
+S 4 8 "a scroll that says: 'You are lonely, because you've prioritized mindless consumption, car-dependent infrastructure, and the pursuit of the Dollar.'"
+S 15 3 "a scroll that says: 'There's hardly any freedom or individuality in being a rent and debt slave collectively working towards the enrichment of landlords, and bankers.'"
+S 8 6 "a scroll that says: 'Human Nature is greedy, and selfish. That's why we wage Revolutions, and negotiate for higher wages!'"
+D 19 8 "../games/map2_aug302024_v5.txt"
+
+####################
+#@.................#
+######.#####.#######
+#....#.#...#.#.S...#
+#C.........#.#####.#
+#....#.#####.......#
+#....#..S..#.#C....#
+#.##########.#######
+#...S#......C......D
+#######E############
+
