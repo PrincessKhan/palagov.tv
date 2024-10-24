@@ -1,22 +1,23 @@
 20 10
 P 3 8
-C 18 8 "an inflatable canoe!"
-C 1 4 "an e-ink smartphone!"
-C 14 6 "a pellet extruder hotend!"
-S 11 8 "a scroll that says: 'We need Ego. Otherwise we become extensions of somebody else's.'"
-S 15 2 "a scroll that says: 'A little bit of gratitude is nice. Too much gratitude will stifle your growth and extinguish your Life Force; causing you to devolve from a mammal, into an amoeba.'"
-S 13 4 "a scroll that says: 'From Kermadec, to Manuae -- we will show em' how it's done!'"
-C 8 6 "a 48v 750w e-bike!'"
+C 15 8 "an inflatable canoe!"
+C 18 4 "a geocached box with an e-ink smartphone!"
+C 14 6 "a geocached box with a pellet extruder hotend, for recycling plastic waste into 3d printable filament!"
+S 11 1 "a scroll that says: 'Life is a Game in which individual organisms, and groups of organisms strive and fight in order to leave their Mark on the World -- whether it's in the form of DNA, poetry, literature, architecture or in the form of scientific and technological achievements, and a whole lot more!'"
+S 15 2 "a scroll that says: 'Strength; is the only thing that matters in this world. Everything else, is a delusion for the Weak. There is only one certainty in Life -- a strongman stands above and conquers all!'"
+S 13 4 "a scroll that says: 'I am more of a Man, and more of a Woman than you ever will be in your entire Lifetime, and Beyond!'"
+C 8 6 "a steel container with 7 grams of vacuum sealed, powdered Estradiol Enanthate! You better leave that exactly where you found it -- or else, you'll have 1 year left to contend with the Wrath of Princess Khan!'"
 D 1 8 "../games/map1_aug302024_v5.txt"
+D 19 8 "../games/map1_sep302024_v1.txt"
 
 ####################
-#....#.#...........#
-#...........#..S...#
-######.#############
-#C.....#....#S.....#
-#....#.#....#......#
-#....#.#C...#......#
-######.####.######.#
-#D.@.......S......C#
+#....#.....S#......#
+#....#.#....#.#S...#
+#....#.####.#.#.####
+#....#.#....#S#...C#
+#....#.#.####.####.#
+#....#.#C...#.#....#
+#...#..####.#.#.####
+#D.@..#.......#C...D
 #######E############
 

@@ -185,35 +185,6 @@ function handleHashChange() {
     toggleChapter(newHash);
 }
 
-// Attach click event listeners to TOC links
-document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        var href = link.getAttribute('href');
-        // Check if the link has a hashtag
-        if (href && href.charAt(0) === '#') {
-            if (window.innerWidth <= 896) {
-                document.getElementById('side-menu').classList.remove('active');
-            }
-            event.preventDefault(); // Prevent default link behavior
-            var targetId = href.substring(1); // Remove the '#'
-            if (targetId === 'Home') {
-                toggleChapter('latest-vids');
-                // Scroll to the top of the page and update URL hash for the Home button
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'auto'
-                });
-                history.replaceState(null, null, '#' + targetId);
-                videoShuffleEnabled = true;
-            } else {
-                // Toggle visibility for other chapters, scroll, and update URL hash
-                toggleChapter(targetId);
-            }
-        }
-        // else: Allow normal navigation for links without hashtags
-    });
-});
-
 // Handle direct link on page load
 handleDirectLink();
 
@@ -224,10 +195,53 @@ document.addEventListener("DOMContentLoaded", function() {
     //var mainElement = document.querySelector('main');
     //mainElement.classList.add('fade-in');
 
+	const sideMenu = document.getElementById('side-menu');
+	sideMenu.innerHTML = `
+		<a href="/press/piracy-sources.html">🏴‍☠️ Piracy Sources</a>
+		<a href="/press/code-of-honour.html">⚔️ Code of Honour</a>
+		<a href="/press/allies-enemies.html">⚔️ Allies & Enemies</a>
+		<a href="/press">Table of Contents</a>
+		<a href="/radio/song1_3oct2024.html">Latest Radio Hits</a>
+		<a href="/press/movies-list.html">Latest Movies</a>
+		<a href="/bayesian.html">Bayesian Table <font color="red">(New!)</font></a>
+		<a href="/#chalk-tweeter">Chalkboard Tweeter</a>
+		<a href="/#latest-music">Music Library</a>
+		<a href="/#shopping-list">Shopping List</a>
+		<a href="https://git.palagov.tv/khanumballz/palagov.tv">Source Code <font color="red">(Fixed!)</font></a>
+	`;
+
     if (window.innerWidth >= 896) {
         document.getElementById('side-menu').classList.add('active');
     }
     console.log('DOM content loaded');
+
+    // Use event delegation to handle clicks on dynamically added links
+    sideMenu.addEventListener('click', function(event) {
+        const link = event.target.closest('a');
+        if (link) {
+			if (window.innerWidth <= 896) {
+				document.getElementById('side-menu').classList.remove('active');
+			}			
+            var href = link.getAttribute('href');
+            if (href && href.charAt(0) === '#') {
+                event.preventDefault(); // Prevent default link behavior
+                var targetId = href.substring(1); // Remove the '#'
+                if (targetId === 'Home') {
+                    toggleChapter('latest-vids');
+                    // Scroll to the top of the page and update URL hash for the Home button
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'auto'
+                    });
+                    history.replaceState(null, null, '#' + targetId);
+                    videoShuffleEnabled = true;
+                } else {
+                    // Toggle visibility for other chapters, scroll, and update URL hash
+                    toggleChapter(targetId);
+                }
+            }
+        }
+    });
 
     if (videoShuffleEnabled == true) {
 
@@ -709,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("Kia ora! I'm glad you found my stickers, and pamphlets. You are now playing 4-Dimensional Chess against Princess Khan -- Spearheader of the New Zealand 2026 Revolution. By the end of this game you will understand why I set out to conquer your country, and why I will succeed no matter what you try to do. Use the keys W,A,S,D to move your character, or the buttons on each side of the mini-map if on mobile. Good luck, have fun!"); 
+			displayMessage("The most effective way to boycott Israel is to pirate ALL of your media -- that includes streaming services, movies, music, software, Android apps, etc. That's because most of their revenue comes from the Technology sector."); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}

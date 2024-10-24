@@ -1,0 +1,22 @@
+20 10
+P 3 8
+C 15 8 "a geocached box with X!"
+C 18 4 "a geocached box with X!"
+C 14 6 "a geocached box with X!"
+S 11 1 "a scroll that says: 'A!'"
+S 15 2 "a scroll that says: 'A!'"
+S 13 4 "a scroll that says: 'A!'"
+C 8 6 "a geocached box with X!"
+D 1 8 "../games/map2_aug302024_v5.txt"
+
+####################
+#..........S.......#
+#..............S...#
+#..................#
+#............S....C#
+#..................#
+#.......C..........#
+#..................#
+#D.@...........C...#
+#######E############
+
