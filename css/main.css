@@ -14,15 +14,18 @@
 }
 
 main {
+    background-image: url('/images/bkg-texture-paper_2.jpg');
+    background-repeat: repeat; /* Makes the texture repeat */
+    background-size: 175px 175px; /* Size of each tile */
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1); /* Semi-transparent white background */
     border-left: 1px solid #c9c9c9;
     border-right: 1px solid #c9c9c9;
     box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.2);
     opacity: 0; /* Start with opacity 0 */
-    transition: opacity 0.5s ease; /* Transition the opacity property over 0.5 seconds */
+    transition: opacity 0.5s ease; /* Transition the opacity property over 0.5 seconds */    
 }
 
 main.fade-in {
@@ -177,7 +180,7 @@ background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZ
     .sound-toggle {
         position: fixed;
         z-index: 999;
-        top: 75%;
+        top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 200px;

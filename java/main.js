@@ -197,17 +197,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
-		<a href="/press/piracy-sources.html">🏴‍☠️ Piracy Sources</a>
-		<a href="/press/code-of-honour.html">⚔️ Code of Honour</a>
-		<a href="/press/allies-enemies.html">⚔️ Allies & Enemies</a>
-		<a href="/press">Table of Contents</a>
-		<a href="/radio/song1_3oct2024.html">Latest Radio Hits</a>
-		<a href="/press/movies-list.html">Latest Movies</a>
-		<a href="/bayesian.html">Bayesian Table <font color="red">(New!)</font></a>
-		<a href="/#chalk-tweeter">Chalkboard Tweeter</a>
-		<a href="/#latest-music">Music Library</a>
-		<a href="/#shopping-list">Shopping List</a>
-		<a href="https://git.palagov.tv/khanumballz/palagov.tv">Source Code <font color="red">(Fixed!)</font></a>
+        <a href="https://theliesofisrael.com/en/home/">🇵🇸 The Lies of 'Israel'</a>
+		<a href="/press/allies-enemies.html">⚔️ Allies & Enemies</a>	
+		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
+		<a href="/press">📖 Table of Contents</a> 
+		<a href="/radio/song1_3oct2024.html">🔗 Latest Radio Hits</a>
+		<a href="/press/movies-list.html">🔗 Latest Movies</a>
+		<a href="/#memes-propaganda">🔗 Memes & Propaganda</a>		
+		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>
+		<a href="/#latest-music">🔗 Music Library</a>
+		<a href="/#shopping-list">🔗 Shopping List</a>
+		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
 	`;
 
     if (window.innerWidth >= 896) {
@@ -678,7 +678,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_aug302024_v5.txt') {
+	async function loadMap(filePath = '../games/map1_nov72024_4.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -723,7 +723,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("The most effective way to boycott Israel is to pirate ALL of your media -- that includes streaming services, movies, music, software, Android apps, etc. That's because most of their revenue comes from the Technology sector."); 
+			displayMessage("Never grow old, never surrender, never let them win. We will not rest, we will work in our sleep, we will tap into the Quantum Realm if we have to. We will reclaim the Youth that was stolen from us -- even if the whole world is working against us! - Princess Khan"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
