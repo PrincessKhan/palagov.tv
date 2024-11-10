@@ -13,6 +13,12 @@ var handleTouchStart;
 var handleTouchEnd;
 var handleKeyDown;
 
+var mainElement = document.querySelector('main');
+mainElement.classList.add('fade-in');
+
+var mainElement = document.querySelector('header');
+mainElement.classList.add('fade-in');
+
 if (windowPathname === '/') {
     videoShuffleEnabled = true;
 }
@@ -90,13 +96,6 @@ function hideAllLoadingCubes() {
     }, 300); // Delay for smooth transition
     console.log("Hiding cube contianer!");
 }
-
-
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    if (window.innerWidth <= 896) {
-        document.getElementById('side-menu').classList.toggle('active');
-    }
-});
 
 // Function to toggle visibility of the selected chapter or video
 function toggleChapter(chapterId) {
@@ -195,6 +194,16 @@ document.addEventListener("DOMContentLoaded", function() {
     //var mainElement = document.querySelector('main');
     //mainElement.classList.add('fade-in');
 
+	const topMenu = document.getElementById('top-menu');
+	topMenu.innerHTML = `
+        <a id="menu-toggle" class="icon-button menu-button"></a>
+        <a class="icon-button home-button" href="/"></a>
+        <a class="icon-button youtube-button" href="https://www.youtube.com/@RealPrincessKhan"></a>
+        <a class="icon-button reddit-button" href="https://www.reddit.com/user/RealPrincessKhan"></a>
+        <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
+        <a class="icon-button cults3d-button" href="/print-3d"></a>
+	`;
+
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
         <a href="https://theliesofisrael.com/en/home/">🇵🇸 The Lies of 'Israel'</a>
@@ -214,6 +223,12 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('side-menu').classList.add('active');
     }
     console.log('DOM content loaded');
+    
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+		if (window.innerWidth <= 896) {
+			document.getElementById('side-menu').classList.toggle('active');
+		}
+	});
 
     // Use event delegation to handle clicks on dynamically added links
     sideMenu.addEventListener('click', function(event) {

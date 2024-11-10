@@ -28,6 +28,10 @@ main {
     transition: opacity 0.5s ease; /* Transition the opacity property over 0.5 seconds */    
 }
 
+#top-menu. {
+
+}
+
 main.fade-in {
     opacity: 1; /* When the .fade-in class is applied, change opacity to 1 */
 }
@@ -47,7 +51,15 @@ main.fade-in {
      z-index: 999;
     /*padding: 0 15px;
      */
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.5s ease; /* Transition the opacity property over 0.5 seconds */    
 }
+
+header.fade-in {
+    opacity: 1; /* Start with opacity 0 */
+}
+
+
  nav {
      padding-top: 2px;
      margin: auto;
