@@ -163,9 +163,17 @@ header.fade-in {
      list-style: none;
      padding: 0;
 }
+ .shopping-list {
+     list-style: none;
+     padding: 0;
+     font-size: 0.8em;
+}
 /* Style for the navigation links */
  .chapter-list li {
      padding: 15px 0px;
+}
+ .shopping-list li {
+     padding: 10px 0px;
 }
 /* Style for responsive videos */
  .video-container {

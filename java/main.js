@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
-        <a href="https://theliesofisrael.com/en/home/">🇵🇸 The Lies of 'Israel'</a>
+        <a href="https://www.reddit.com/r/IsraelExposed">🇵🇸 r/IsraelExposed</a>
 		<a href="/press/allies-enemies.html">⚔️ Allies & Enemies</a>	
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
 		<a href="/press">📖 Table of Contents</a> 
@@ -693,7 +693,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_nov72024_4.txt') {
+	async function loadMap(filePath = '../games/map1_nov122024_5.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("Never grow old, never surrender, never let them win. We will not rest, we will work in our sleep, we will tap into the Quantum Realm if we have to. We will reclaim the Youth that was stolen from us -- even if the whole world is working against us! - Princess Khan"); 
+			displayMessage("Either we all live a Good Life, or we all perish. If only a [single] individual is left behind our quest for greater Power, greater Knowledge and greater Wealth, and living standards -- then we will be forever Lost. - Princess Khan"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
