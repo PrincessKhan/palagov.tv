@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("Either we all live a Good Life, or we all perish. If only a [single] individual is left behind our quest for greater Power, greater Knowledge and greater Wealth, and living standards -- then we will be forever Lost. - Princess Khan"); 
+			displayMessage("Either we all live a Good Life, or we all perish. If only a [single] individual is left behind in our quest for greater Power, greater Knowledge and greater Wealth, and living standards -- then we will be forever Lost. - Princess Khan"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
