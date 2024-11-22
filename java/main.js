@@ -198,22 +198,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	topMenu.innerHTML = `
         <a id="menu-toggle" class="icon-button menu-button"></a>
         <a class="icon-button home-button" href="/"></a>
-        <a class="icon-button youtube-button" href="https://www.youtube.com/@RealPrincessKhan"></a>
-        <a class="icon-button reddit-button" href="https://www.reddit.com/user/RealPrincessKhan"></a>
         <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
         <a class="icon-button cults3d-button" href="/print-3d"></a>
 	`;
 
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
-        <a href="https://www.reddit.com/r/IsraelExposed">🇵🇸 r/IsraelExposed</a>
-		<a href="/press/allies-enemies.html">⚔️ Allies & Enemies</a>	
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
-		<a href="/press">📖 Table of Contents</a> 
-		<a href="/radio/song1_3oct2024.html">🔗 Latest Radio Hits</a>
-		<a href="/press/movies-list.html">🔗 Latest Movies</a>
-		<a href="/#memes-propaganda">🔗 Memes & Propaganda</a>		
-		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>
+		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
+		<a href="/radio/song1_15nov2024.html">🔗 Latest Radio Hits</a>	
 		<a href="/#latest-music">🔗 Music Library</a>
 		<a href="/#shopping-list">🔗 Shopping List</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
@@ -693,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_nov122024_5.txt') {
+	async function loadMap(filePath = '../games/map1_sep302024_v5.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -738,7 +731,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("Either we all live a Good Life, or we all perish. If only a [single] individual is left behind in our quest for greater Power, greater Knowledge and greater Wealth, and living standards -- then we will be forever Lost. - Princess Khan"); 
+			displayMessage("Welcome to the Island. The MANA Initiative is a breakaway Society whose primary focus is the creation of fully autonomous, Open Source Androids in order to treat and prevent social Alienation, and make hierarchical Status Games a thing of the Past -- allowing us to rise above the Culture Wars, build Families and leave something beyond ourselves -- thereby enabling us to create a special Place on this Earth where we can experience everlasting Harmony and Bliss, without depriving ourselves of the Adventures, Challenges and Rites of Passage that are required in order to live a meaningful and fulfilling Life. Good Luck, and --  💠  Salaam! - Princess Khan  💠"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
