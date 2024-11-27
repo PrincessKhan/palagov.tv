@@ -57,8 +57,10 @@
         <p style="text-align: center">
           <i>8th of October, 2018 &ndash; <br> Pālave⃑an Embassy, Princess Khan</i>
         </p>
-        <p style="font-size: 0.8em; color: green; background-color: rgba(100, 200, 100, 0.25);"><i>Modified: September 17, 2024 | 10:24p.m.</i></p>
-        <!--<p style="font-size: 0.8em; color: white; background-color: rgba(250, 125, 75, 1);"><i>...UNDER CONSTRUCTION!!!</i></p>-->
+        <p style="font-size: 0.8em; color: green; background-color: rgba(100, 200, 100, 0.25);"><i>Modified: November 23, 2024 | 8:24p.m.</i></p>
+        <p style="font-size: 0.8em; color: white; background-color: rgba(255, 0, 0, 0.75);">
+          <i>Under construction. Check back later!</i>
+            </p>
 
         <!-- Table of Contents -->
         <section>
@@ -78,9 +80,9 @@
 
         <!-- Introduction -->
         <section id="introduction">
-          <h2 class="section-title">Introduction</h2>
+          <h2 class="section-title">Introduction & Rationale</h2>
           <p>Welcome to the complete assembly guide for Sylvie 2024!</p> 
-          <p>This manual will provide you with the detailed instructions and resources you'll need to help build and customize your own clone of our open source, humanoid robot design.</p>
+          <p>This manual will provide you with the detailed instructions and resources you'll need to help build and customize your own clone of our open source Android design.</p>
           <p>Sylvie 2024 was originally created as a means of enabling our crew members to survive extended missions that demand complete and total isolation from the outside world, but has since evolved into a more general purpose engineering project.</p>
           <p>Loneliness isn't something that can necessarily be fixed by providing the illusion of companionship. Even the availability of 'actual' companionship may sometimes fail to get to the root of the problem.</p>   
           <p style="font-size: 1.6em; text-align: center">...</p>
@@ -100,7 +102,7 @@
         
         <!-- Components -->
         <section id="components">
-          <h2 class="section-title">Components</h2>
+          <h2 class="section-title">Parts & Components</h2>
           <p>Here you will find a comprehensive list of all the parts required to build Sylvie 2024. Each component is detailed with specifications and where to source it.</p>
           <ul>
             <li style="margin-left: -15px;"><b>Actuators</b></li>
@@ -119,10 +121,18 @@
 				<li style="margin-left: -25px;">3Pin Micro Limit Switch</li>
 				<li style="margin-left: -25px;">3Pin Micro Limit Switch</li>
 			</ul>
-            <li style="margin-left: -15px;"><a href="#controllers">Controllers</a></li>
-            <li style="margin-left: -15px;"><a href="#power-supply">Power Supply</a></li>
-            <li style="margin-left: -15px;"><a href="#frame">Frame</a></li>
-            <li style="margin-left: -15px;"><a href="#software">Software</a></li>
+            <li style="margin-left: -15px;"><b>Micro-controllers</b></li>
+            <ul>
+				<li style="margin-left: -25px;">ESP32 38PIN Dev Board</li>
+				<li style="margin-left: -25px;">ESP32 30PIN Dev Board (Recommended)</li>
+				<li style="margin-left: -25px;">ESP32-C3 Mini</li>
+				<li style="margin-left: -25px;">Arduino Nano (Recommended)</li>
+				<li style="margin-left: -25px;">Arduino Mini</li>
+			</ul>            
+            <li style="margin-left: -15px;"><b>Drivers</b></li>
+            <li style="margin-left: -15px;"><b>Power Supply</b></li>
+            <li style="margin-left: -15px;"><b>Frame</b></li>
+            <li style="margin-left: -15px;"><b>Software</b></li>
           </ul>
         </section>
         
@@ -151,6 +161,7 @@
         <section id="programming">
           <h2 class="section-title">Programming</h2>
           <p>Guide to programming Sylvie 2024. Includes software setup, code snippets, and debugging tips.</p>
+          <p><a href="https://git.palagov.tv/khanumballz/sylvie-2024">Source Code Here!</a></p>
           <h3 class="subsection-title">Software Setup</h3>
           <p>Instructions for setting up the development environment.</p>
           <h3 class="subsection-title">Code Snippets</h3>
@@ -194,6 +205,6 @@
       var mainElement = document.querySelector('main');
       mainElement.classList.add('fade-in');
     </script>
-    <script src="/java/main.js?v=9.21"></script>
+    <script src="/java/main.js?v=9.25"></script>
   </body>
 </html>

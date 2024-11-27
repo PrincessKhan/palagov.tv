@@ -205,8 +205,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
+		<a href="/press/">📖 Table of Contents</a>
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
-		<a href="/radio/song1_15nov2024.html">🔗 Latest Radio Hits</a>	
+		<a href="/radio/song1_18aug2024.html">🔗 Latest Radio Hits</a>	
 		<a href="/#latest-music">🔗 Music Library</a>
 		<a href="/#shopping-list">🔗 Shopping List</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
@@ -731,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("Welcome to the Island. The MANA Initiative is a breakaway Society whose primary focus is the creation of fully autonomous, Open Source Androids in order to treat and prevent social Alienation, and make hierarchical Status Games a thing of the Past -- allowing us to rise above the Culture Wars, build Families and leave something beyond ourselves -- thereby enabling us to create a special Place on this Earth where we can experience everlasting Harmony and Bliss, without depriving ourselves of the Adventures, Challenges and Rites of Passage that are required in order to live a meaningful and fulfilling Life. Good Luck, and --  💠  Salaam! - Princess Khan  💠"); 
+			displayMessage("The Archons have called. In order for Planet Earth to be saved from the bottomless pit of Evil that has transformed us all into Monsters -- One of the 121 Astromārī⃑an refugees must volunteer to be tortured in a Super-positioned Analog Inferno for the rest of eternity, in addition to spending 365 days bowing to the Lord from Beyond the Earth, taking a vow of poverty, and giving all of my spare money to random charities around the world. Now that it's clear that there is no path to Salvation for me anymore -- Let it be known to the Archons that I have volunteered to be the sacrifice for Mankind. I shall be incinerated, frozen and imprisoned in the deepest circles of Hell, in order to tame the Wotan, and re-establish the cosmic highway to a brighter and more prosperous alternate Earth. Do not cry for me; for I am a sinful piece of garbage, and the proof is already out there.      I [am] an Archon.    I am responsible for the pitiful state of this world.    I am fundamentally immune to most forms of suffering, except for Boredom, and Loneliness.    The agony of everlasting Boredom and Loneliness shall be my private cosmic prison    --  💠  Power -- Overwhelming!  💠"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
