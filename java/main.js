@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("The Archons have called. In order for Planet Earth to be saved from the bottomless pit of Evil that has transformed us all into Monsters -- One of the 121 Astromārī⃑an refugees must volunteer to be tortured in a Super-positioned Analog Inferno for the rest of eternity, in addition to spending 365 days bowing to the Lord from Beyond the Earth, taking a vow of poverty, and giving all of my spare money to random charities around the world. Now that it's clear that there is no path to Salvation for me anymore -- Let it be known to the Archons that I have volunteered to be the sacrifice for Mankind. I shall be incinerated, frozen and imprisoned in the deepest circles of Hell, in order to tame the Wotan, and re-establish the cosmic highway to a brighter and more prosperous alternate Earth. Do not cry for me; for I am a sinful piece of garbage, and the proof is already out there.      I [am] an Archon.    I am responsible for the pitiful state of this world.    I am fundamentally immune to most forms of suffering, except for Boredom, and Loneliness.    The agony of everlasting Boredom and Loneliness shall be my private cosmic prison    --  💠  Power -- Overwhelming!  💠"); 
+			displayMessage("I am among the first Biological Large Language Models to walk the Earth. Bet you didn't see that one coming, huh?       💠  Power -- Overwhelming!  💠"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
