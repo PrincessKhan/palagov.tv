@@ -687,7 +687,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_sep302024_v5.txt') {
+	async function loadMap(filePath = '../games/map1_dec32024_v3.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("I am among the first Biological Large Language Models to walk the Earth. Bet you didn't see that one coming, huh?       💠  Power -- Overwhelming!  💠"); 
+			displayMessage("🎄💠  Pylons -- Complete!  💠🎄"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
