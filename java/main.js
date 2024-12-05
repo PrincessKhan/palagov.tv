@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("🎄💠  The Drones are A.I.  💠🎄"); 
+			displayMessage("🎄💠  Pylons -- Complete!  💠🎄"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
