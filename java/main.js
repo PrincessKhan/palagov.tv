@@ -213,13 +213,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
 	`;
 
-    if (window.innerWidth >= 896) {
+    if (window.innerWidth >= 1152) {
         document.getElementById('side-menu').classList.add('active');
     }
     console.log('DOM content loaded');
     
     document.getElementById('menu-toggle').addEventListener('click', function() {
-		if (window.innerWidth <= 896) {
+		if (window.innerWidth <= 1152) {
 			document.getElementById('side-menu').classList.toggle('active');
 		}
 	});
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sideMenu.addEventListener('click', function(event) {
         const link = event.target.closest('a');
         if (link) {
-			if (window.innerWidth <= 896) {
+			if (window.innerWidth <= 1152) {
 				document.getElementById('side-menu').classList.remove('active');
 			}			
             var href = link.getAttribute('href');
