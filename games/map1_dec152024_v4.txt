@@ -1,0 +1,31 @@
+20 10
+P 1 1
+
+S 5 6 "a scroll that says: What is a Pylon? Pylons are the pillars and building blocks of creation itself. Our Universe is littered with patterns, gifts and Easter Eggs waiting to be unlocked, and discovered. -- You cannot build a society without values. -- You cannot build a [good] society without [good] values. -- We must construct better values. -- We Must Construct Additional Pylons!     🎄💠   Pylons -- Complete   💠🎄"
+
+S 9 2 "a scroll that says: How would I describe the Pālave⃑an Society in one sentence? --- 'An Oceanic, Polynesian, Second Renaissance where the most beautiful, cultured, altruistic, highly educated, brave and intellectually curious members of the Human Race work together for the betterment of all, as opposed to the enrichment of a single, parasitic class; the Archons who are responsible for depleting our MANA, our Soul, and our creative energy.'. We are a Warrior Society ---- not to be confused with a Warmongering Society. ---- Warmongers are Cowards!     🎄💠   Pylons -- Complete   💠🎄"
+
+S 10 4 "a scroll that says:   🇵🇸 FREE PALESTINE 🇵🇸    🎄💠   Pylons -- Complete   💠🎄"
+
+S 14 6 "a scroll that says: What is the Oracle, and what is the Leviathan? -- The Oracle represents Feminine Energy, whereas the Leviathan represents Masculine Energy. -- We need both in our lives. Too much of one or the other creates poor health, and lack of equilibrium.    🎄💠   Pylons -- Complete   💠🎄"
+
+C 6 5 "a Kiranite Bible! Keep in mind that we are not a Religion. It is an entirely new way of thinking and seeing the world. We don't try to convert anybody. Instead -- we communicate Telepathically, though it's nice to be able to brainstorm new ideas and write them down...    🎄💠  34 44 28 21 33 47 63  💠🎄"
+
+C 7 6 "a Hieroglyph-carving Kit! Hieroglyphs are a great way to convey a multi-layered, and poly-dimensional sense of meaning. Think of how upset and easily offended people can become when reading online, one-line Tweets and messages. That's because Human language is highly primitive, and easy to twist and misinterpret to make it mean something else.    🎄💠   Pylons -- Complete   💠🎄"
+C 13 5 "an amphibious, robotic, autonomous, hovering Probe! Once activated -- these can be used in order to scout for locations to build new homes for our kind.   🎄💠   Pylons -- Complete   💠🎄"
+
+C 12 6 "a Titanium Aura Crystal!     🎄💠   Pylons -- Complete   💠🎄"
+
+D 19 8 "../games/map1_dec32024_v5.txt"
+
+####################
+#@.......##........#
+#.......#S##.......#
+#......#....#......#
+#.....#..#S..#.....#
+#..###C..##..C###..#
+#....S#C.##.C#S....#
+#..##..#.##.#..##..#
+#...##...##...##...D
+#######E############
+

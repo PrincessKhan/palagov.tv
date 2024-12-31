@@ -199,19 +199,23 @@ document.addEventListener("DOMContentLoaded", function() {
         <a id="menu-toggle" class="icon-button menu-button"></a>
         <a class="icon-button home-button" href="/"></a>
         <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
+        <a class="icon-button reddit-button" href="https://www.reddit.com/r/kiranite"></a>
         <a class="icon-button cults3d-button" href="/print-3d"></a>
 	`;
+	
+	//        <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=xiYSnswb2Z4"></a>
 
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
 		<a href="/press/">📖 Table of Contents</a>
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
-		<a href="/radio/song1_18aug2024.html">🔗 Latest Radio Hits</a>	
 		<a href="/#latest-music">🔗 Music Library</a>
-		<a href="/#shopping-list">🔗 Shopping List</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
 	`;
+	
+	// 		<a href="/radio/song1_7dec2024.html">🔗 Latest Radio Hits</a>	
+	// 		<a href="/#shopping-list">🔗 Shopping List</a>
 
     if (window.innerWidth >= 1152) {
         document.getElementById('side-menu').classList.add('active');
@@ -687,7 +691,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_dec32024_v3.txt') {
+	async function loadMap(filePath = '../games/map1_dec152024_v4.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -732,7 +736,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("🎄💠  Pylons -- Complete!  💠🎄"); 
+			displayMessage("We created a World based on FEAR, and SLAVERY ---- We created a World devoid of ADVENTURE ---- We created a World of STAGNATION! ---- ---- Stop paying your RENT ---- Stop paying your DEBT ---- Stop being WEAK ---- Stop being COWARDS! ---- ---- Take your Country BACK ---- Take your LIFE BACK ---- ---- FIGHT THE RICH!     🎄💠  34 44 28 21 33 47 63  💠🎄"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
