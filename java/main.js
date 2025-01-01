@@ -736,7 +736,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("We created a World based on FEAR, and SLAVERY ---- We created a World devoid of ADVENTURE ---- We created a World of STAGNATION! ---- ---- Stop paying your RENT ---- Stop paying your DEBT ---- Stop being WEAK ---- Stop being COWARDS! ---- ---- Take your Country BACK ---- Take your LIFE BACK ---- ---- FIGHT THE RICH!     🎄💠  34 44 28 21 33 47 63  💠🎄"); 
+			displayMessage("     🎄💠    See you in 2037!    💠🎄"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
