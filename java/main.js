@@ -736,7 +736,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("     🎄💠    See you in 2037!    💠🎄"); 
+			displayMessage("     🐔💠    See you in 2037!    💠🐔"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
