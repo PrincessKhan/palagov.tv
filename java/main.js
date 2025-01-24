@@ -212,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="https://chat.deepseek.com/">🐋 DeepSeek Chat</a>        	
         <a href="https://ollama.com/library/deepseek-r1">🦙 DeepSeek Local</a>	
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>		
+		<a href="/press/computer-repair.html">👩🏽‍💻 Computer Repair</a>		
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
 		<a href="/#latest-music">🔗 Music Library</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
