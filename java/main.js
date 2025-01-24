@@ -197,18 +197,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	const topMenu = document.getElementById('top-menu');
 	topMenu.innerHTML = `
         <a id="menu-toggle" class="icon-button menu-button"></a>
-        <a class="icon-button home-button" href="/"></a>
+        <a class="icon-button home-button" href="/"></a>	
         <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
-        <a class="icon-button reddit-button" href="https://www.reddit.com/r/kiranite"></a>
+        <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
+        <a class="icon-button reddit-button" href="https://reddit.com/r/TheDeprogram"></a>
         <a class="icon-button cults3d-button" href="/print-3d"></a>
 	`;
 	
 	//        <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=xiYSnswb2Z4"></a>
 
 	const sideMenu = document.getElementById('side-menu');
-	sideMenu.innerHTML = `
-		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>
-		<a href="/press/">📖 Table of Contents</a>
+	sideMenu.innerHTML = `	
+        <a href="https://play.google.com/store/apps/details?id=com.xingin.xhs&hl=en_NZ&pli=1">🇨🇳 RedNote App</a>
+        <a href="https://chat.deepseek.com/">🐋 DeepSeek Chat</a>        	
+        <a href="https://ollama.com/library/deepseek-r1">🦙 DeepSeek Local</a>	
+		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>		
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
 		<a href="/#latest-music">🔗 Music Library</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
@@ -255,6 +258,56 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+	const emojis = [
+	  ["🌊", "🌴", "✨", "🌺"],
+	  ["🌟", "⚡", "🌍", "🌑"],
+	  ["🌻", "🍃", "🌙", "🌟"]
+	];
+
+	const title = document.querySelector("#morphing-title");
+	if (title) {
+		const spans = Array.from(title.children);  // Collects all <span> elements
+
+		let wordIndex = 0;
+
+		function morphWord() {
+		  wordIndex = (wordIndex + 1) % emojis.length;
+		  const newWord = emojis[wordIndex];
+
+		  // Adjust the number of spans based on the new word's length
+		  while (spans.length < newWord.length) {
+			const span = document.createElement('span');
+			title.appendChild(span);
+			spans.push(span);
+		  }
+
+		  spans.forEach((span, index) => {
+			setTimeout(() => {
+			  // Fade out the current emoji
+			  span.style.opacity = "0";
+
+			  setTimeout(() => {
+				// Change the emoji after fade-out completes
+				span.textContent = newWord[index] || ""; // Empty if the new word is shorter
+				// Fade-in the new emoji
+				span.style.opacity = "1";
+			  }, 500); // Match the fade-out duration (500ms)
+			}, index * 100); // Stagger the timing for each emoji
+		  });
+
+		  // Remove any extra spans if the new word is shorter
+		  while (spans.length > newWord.length) {
+			const span = spans.pop();
+			span.remove();
+		  }
+		}
+
+		// Start morphing every few seconds
+		setInterval(morphWord, 4000);
+	} else {
+		console.error("Element with ID 'morphing-title' not found.");
+	}
 
     if (videoShuffleEnabled == true) {
 
@@ -736,7 +789,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-			displayMessage("     🐔💠    See you in 2037!    💠🐔"); 
+				displayMessage("Our plan is simple: -- 1. We cancel all mortages. -- 2. Occupy all housing stock currently FOR SALE. -- 3. Declare independence, partition the land among our Whanau, and Māori representatives. -- 4. Democratically elect a new government. -- -- Have a nice day!  -- --  🇳🇿💠  Power -- Overwhelming!  💠🇳🇿"); 
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
