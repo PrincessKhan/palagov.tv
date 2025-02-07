@@ -200,20 +200,19 @@ document.addEventListener("DOMContentLoaded", function() {
         <a class="icon-button home-button" href="/"></a>	
         <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
         <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
-        <a class="icon-button reddit-button" href="https://reddit.com/r/TheDeprogram"></a>
         <a class="icon-button cults3d-button" href="/print-3d"></a>
 	`;
 	
 	//        <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=xiYSnswb2Z4"></a>
-
+        //<a href="https://play.google.com/store/apps/details?id=com.xingin.xhs&hl=en_NZ&pli=1">🇨🇳 RedNote App</a>
+        //<a href="https://chat.deepseek.com/">🐋 DeepSeek Chat</a>
+        
 	const sideMenu = document.getElementById('side-menu');
 	sideMenu.innerHTML = `	
-        <a href="https://play.google.com/store/apps/details?id=com.xingin.xhs&hl=en_NZ&pli=1">🇨🇳 RedNote App</a>
-        <a href="https://chat.deepseek.com/">🐋 DeepSeek Chat</a>        	
-        <a href="https://ollama.com/library/deepseek-r1">🦙 DeepSeek Local</a>	
-		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>		
-		<a href="/press/computer-repair.html">👩🏽‍💻 Computer Repair</a>		
+        <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
+        <a href="/press/">📖 Table of Contents</a>
+		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 		<a href="/#latest-music">🔗 Music Library</a>
 		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
 	`;
@@ -221,9 +220,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	// 		<a href="/radio/song1_7dec2024.html">🔗 Latest Radio Hits</a>	
 	// 		<a href="/#shopping-list">🔗 Shopping List</a>
 
-    if (window.innerWidth >= 1152) {
-        document.getElementById('side-menu').classList.add('active');
-    }
+	if (window.matchMedia("(min-width: 1152px)").matches) {
+		document.getElementById('side-menu').classList.add('active');
+	}
     console.log('DOM content loaded');
     
     document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -745,7 +744,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_dec152024_v4.txt') {
+	async function loadMap(filePath = '../games/map1_jan282025_v3.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -790,7 +789,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 			drawMap();
-				displayMessage("Our plan is simple: -- 1. We cancel all mortages. -- 2. Occupy all housing stock currently FOR SALE. -- 3. Declare independence, partition the land among our Whanau, and Māori representatives. -- 4. Democratically elect a new government. -- -- Have a nice day!  -- --  🇳🇿💠  Power -- Overwhelming!  💠🇳🇿"); 
+				displayMessage("Strength -- is the [only] thing that Matters in this World. -- -- Everything else -- is just a Delusion for the Weak. -- -- -- --        💠❤️‍🔥      ----Get Good----     ❤️‍🔥💠");
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
