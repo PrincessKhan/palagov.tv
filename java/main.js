@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	sideMenu.innerHTML = `	
         <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
+		<a href="/press/Kiranite-Declaration-of-War.pdf">⚔️ Declaration of War</a>		
         <a href="/press/">📖 Table of Contents</a>
 		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 		<a href="/#latest-music">🔗 Music Library</a>
