@@ -194,323 +194,333 @@ document.addEventListener("DOMContentLoaded", function() {
     //var mainElement = document.querySelector('main');
     //mainElement.classList.add('fade-in');
 
-	const topMenu = document.getElementById('top-menu');
-	topMenu.innerHTML = `
-        <a id="menu-toggle" class="icon-button menu-button"></a>
-        <a class="icon-button home-button" href="/"></a>	
-        <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
-        <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
-        <a class="icon-button cults3d-button" href="/print-3d"></a>
-	`;
-	
-	//        <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=xiYSnswb2Z4"></a>
-        //<a href="https://play.google.com/store/apps/details?id=com.xingin.xhs&hl=en_NZ&pli=1">🇨🇳 RedNote App</a>
-        //<a href="https://chat.deepseek.com/">🐋 DeepSeek Chat</a>
+// TOP MENU & SIDE MENU SETUP
+const topMenu = document.getElementById('top-menu');
+topMenu.innerHTML = `
+    <a id="menu-toggle" class="icon-button menu-button"></a>
+    <a class="icon-button home-button" href="/"></a>	
+    <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
+    <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
+    <a class="icon-button cults3d-button" href="/print-3d"></a>
+`;
+
+const sideMenu = document.getElementById('side-menu');
+sideMenu.innerHTML = `	
+    <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
+	<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
+	<a href="/press/Kiranite-Declaration-of-War.pdf">⚔️ Declaration of War</a>		
+    <a href="/press/">📖 Table of Contents</a>
+	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
+	<a href="/#latest-music">🔗 Music Library</a>
+	<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
+`;
+
+if (window.matchMedia("(min-width: 1152px)").matches) {
+    document.getElementById('side-menu').classList.add('active');
+}
+console.log('DOM content loaded');
+
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    if (window.innerWidth <= 1152) {
+        document.getElementById('side-menu').classList.toggle('active');
+    }
+});
+
+// Event delegation for side menu links
+sideMenu.addEventListener('click', function(event) {
+    const link = event.target.closest('a');
+    if (link) {
+        if (window.innerWidth <= 1152) {
+            document.getElementById('side-menu').classList.remove('active');
+        }
+        var href = link.getAttribute('href');
+        if (href && href.charAt(0) === '#') {
+            event.preventDefault(); // Prevent default link behavior
+            var targetId = href.substring(1); // Remove the '#'
+            if (targetId === 'Home') {
+                toggleChapter('latest-vids');
+                // Scroll to the top of the page and update URL hash for the Home button
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'auto'
+                });
+                history.replaceState(null, null, '#' + targetId);
+                videoShuffleEnabled = true;
+            } else {
+                // Toggle visibility for other chapters, scroll, and update URL hash
+                toggleChapter(targetId);
+            }
+        }
+    }
+});
+
+// EMOJI MORPHING SETUP
+const emojis = [
+  ["🌊", "🌴", "✨", "🌺"],
+  ["🌟", "⚡", "🌍", "🌑"],
+  ["🌻", "🍃", "🌙", "🌟"]
+];
+
+const title = document.querySelector("#morphing-title");
+if (title) {
+    const spans = Array.from(title.children);  // Collects all <span> elements
+
+    let wordIndex = 0;
+
+    function morphWord() {
+      wordIndex = (wordIndex + 1) % emojis.length;
+      const newWord = emojis[wordIndex];
+
+      // Adjust the number of spans based on the new word's length
+      while (spans.length < newWord.length) {
+        const span = document.createElement('span');
+        title.appendChild(span);
+        spans.push(span);
+      }
+
+      spans.forEach((span, index) => {
+        setTimeout(() => {
+          // Fade out the current emoji
+          span.style.opacity = "0";
+
+          setTimeout(() => {
+            // Change the emoji after fade-out completes
+            span.textContent = newWord[index] || ""; // Empty if the new word is shorter
+            // Fade-in the new emoji
+            span.style.opacity = "1";
+          }, 500); // Match the fade-out duration (500ms)
+        }, index * 100); // Stagger the timing for each emoji
+      });
+
+      // Remove any extra spans if the new word is shorter
+      while (spans.length > newWord.length) {
+        const span = spans.pop();
+        span.remove();
+      }
+    }
+
+    // Start morphing every few seconds
+    setInterval(morphWord, 4000);
+} else {
+    console.error("Element with ID 'morphing-title' not found.");
+}
+
+
+// VIDEO SHUFFLE CODE START
+if (videoShuffleEnabled == true) {
+
+    console.log('Mouse scroll disabled!');
+    var videos = document.querySelectorAll('.video-player'); // Select all video elements
+    var currentVideoIndex = videos.length - 1; // Index of the current video (start at the last index)
+    var isScrolling = false; // Flag to track scrolling
+    var lastScrollTime = Date.now(); // Track the time of the last scroll event
+    var touchStartY; // Variable to store the initial touch position
+
+    // Define scrollToFirstVideo function
+    function scrollToFirstVideo() {
+        var videos = document.querySelectorAll('.video-player');
+        if (videos.length > 0) {
+            var firstVideo = videos[0];
+
+            // Center the first video in the viewport
+            var scrollY = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var playerTop = firstVideo.getBoundingClientRect().top + scrollY;
+            var playerHeight = firstVideo.offsetHeight;
+            var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
+
+            window.scrollTo({
+                top: scrollTop,
+                behavior: 'smooth'
+            });
+
+            // Update currentVideoIndex to the first video
+            currentVideoIndex = 0;
+            
+            showAllLoadingCubes();
+
+            // Automatically play the first video after scrolling
+            firstVideo.addEventListener('canplay', function() {
+                firstVideo.classList.remove('loading-animation');
+                firstVideo.classList.add('playing');
+                hideAllLoadingCubes();
+            }, { once: true });
+
+            firstVideo.play();
+        }
+    }
+
+    // Make scrollToFirstVideo accessible globally
+    window.scrollToFirstVideo = scrollToFirstVideo;
+
+    // Check if a video is being played from a URL hash
+    if (videoPlayingFromURL == true) {
+        var videoPickHash = window.location.hash;
+        var videoHashId = videoPickHash.substring(1);
+
+        console.log('Video ID:', videoHashId);
+
+        var playerHashId = videoHashId.replace('video', 'player');
+
+        var hashedVideo = document.getElementById(playerHashId);
         
-	const sideMenu = document.getElementById('side-menu');
-	sideMenu.innerHTML = `	
-        <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
-		<a href="/#chalk-tweeter">🔗 Chalkboard Tweeter</a>		
-		<a href="/press/Kiranite-Declaration-of-War.pdf">⚔️ Declaration of War</a>		
-        <a href="/press/">📖 Table of Contents</a>
-		<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
-		<a href="/#latest-music">🔗 Music Library</a>
-		<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
-	`;
-	
-	// 		<a href="/radio/song1_7dec2024.html">🔗 Latest Radio Hits</a>	
-	// 		<a href="/#shopping-list">🔗 Shopping List</a>
-
-	if (window.matchMedia("(min-width: 1152px)").matches) {
-		document.getElementById('side-menu').classList.add('active');
-	}
-    console.log('DOM content loaded');
-    
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-		if (window.innerWidth <= 1152) {
-			document.getElementById('side-menu').classList.toggle('active');
-		}
-	});
-
-    // Use event delegation to handle clicks on dynamically added links
-    sideMenu.addEventListener('click', function(event) {
-        const link = event.target.closest('a');
-        if (link) {
-			if (window.innerWidth <= 1152) {
-				document.getElementById('side-menu').classList.remove('active');
-			}			
-            var href = link.getAttribute('href');
-            if (href && href.charAt(0) === '#') {
-                event.preventDefault(); // Prevent default link behavior
-                var targetId = href.substring(1); // Remove the '#'
-                if (targetId === 'Home') {
-                    toggleChapter('latest-vids');
-                    // Scroll to the top of the page and update URL hash for the Home button
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'auto'
-                    });
-                    history.replaceState(null, null, '#' + targetId);
-                    videoShuffleEnabled = true;
-                } else {
-                    // Toggle visibility for other chapters, scroll, and update URL hash
-                    toggleChapter(targetId);
-                }
-            }
-        }
-    });
-
-	const emojis = [
-	  ["🌊", "🌴", "✨", "🌺"],
-	  ["🌟", "⚡", "🌍", "🌑"],
-	  ["🌻", "🍃", "🌙", "🌟"]
-	];
-
-	const title = document.querySelector("#morphing-title");
-	if (title) {
-		const spans = Array.from(title.children);  // Collects all <span> elements
-
-		let wordIndex = 0;
-
-		function morphWord() {
-		  wordIndex = (wordIndex + 1) % emojis.length;
-		  const newWord = emojis[wordIndex];
-
-		  // Adjust the number of spans based on the new word's length
-		  while (spans.length < newWord.length) {
-			const span = document.createElement('span');
-			title.appendChild(span);
-			spans.push(span);
-		  }
-
-		  spans.forEach((span, index) => {
-			setTimeout(() => {
-			  // Fade out the current emoji
-			  span.style.opacity = "0";
-
-			  setTimeout(() => {
-				// Change the emoji after fade-out completes
-				span.textContent = newWord[index] || ""; // Empty if the new word is shorter
-				// Fade-in the new emoji
-				span.style.opacity = "1";
-			  }, 500); // Match the fade-out duration (500ms)
-			}, index * 100); // Stagger the timing for each emoji
-		  });
-
-		  // Remove any extra spans if the new word is shorter
-		  while (spans.length > newWord.length) {
-			const span = spans.pop();
-			span.remove();
-		  }
-		}
-
-		// Start morphing every few seconds
-		setInterval(morphWord, 4000);
-	} else {
-		console.error("Element with ID 'morphing-title' not found.");
-	}
-
-    if (videoShuffleEnabled == true) {
-
-        console.log('Mouse scroll disabled!')
-        var videos = document.querySelectorAll('.video-player'); // Select all video elements
-        var currentVideoIndex = videos.length - 1; // Index of the current video (start at the last index)
-        var isScrolling = false; // Flag to track scrolling
-        var lastScrollTime = Date.now(); // Track the time of the last scroll event
-        var touchStartY; // Variable to store the initial touch position
-
-		// Define scrollToFirstVideo function
-		function scrollToFirstVideo() {
-			var videos = document.querySelectorAll('.video-player');
-			if (videos.length > 0) {
-				var firstVideo = videos[0];
-
-				// Center the first video in the viewport
-				var scrollY = window.scrollY;
-				var windowHeight = window.innerHeight;
-				var playerTop = firstVideo.getBoundingClientRect().top + scrollY;
-				var playerHeight = firstVideo.offsetHeight;
-				var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
-
-				window.scrollTo({
-					top: scrollTop,
-					behavior: 'smooth'
-				});
-
-				// Update currentVideoIndex to the first video
-				currentVideoIndex = 0;
-				
-				showAllLoadingCubes();
-
-				// Automatically play the first video after scrolling
-				firstVideo.addEventListener('canplay', function() {
-					firstVideo.classList.remove('loading-animation');
-					firstVideo.classList.add('playing');
-					hideAllLoadingCubes();
-				}, { once: true });
-
-				firstVideo.play();
-			}
-		}
-
-		// Make scrollToFirstVideo accessible globally
-		window.scrollToFirstVideo = scrollToFirstVideo;
-
-        // Remove the '#' symbol from the hash
-        if (videoPlayingFromURL == true) {
-            var videoPickHash = window.location.hash;
-            var videoHashId = videoPickHash.substring(1);
-
-            console.log('Video ID:', videoHashId);
-
-            var playerHashId = videoHashId.replace('video', 'player');
-
-            hashedVideo = document.getElementById(playerHashId);
-            
-			hashedVideo.addEventListener('play', function() {
-				showAllLoadingCubes();			
-			});
-
-			hashedVideo.addEventListener('canplay', function() {
-				hashedVideo.classList.remove('loading-animation');
-				hashedVideo.classList.add('playing');
-				hideAllLoadingCubes();
-			});
-            
-            hashedVideo.play();
-            var soundToggleBtn = document.getElementById('soundToggleBtn');
-            soundToggleBtn.classList.remove('hidden');
-            soundUnmuted = true;
-        }
-
-        // Disable scrolling by default
-        document.body.style.overflow = 'hidden';
-        document.body.style.height = '100%';
-
-        // Function to handle shuffling between videos
-        function shuffleVideos(deltaY) {
-            if (!isScrolling && (Date.now() - lastScrollTime) > 500) {
-                if (Math.abs(deltaY) > 50) {
-                    isScrolling = true;
-                    // Determine the direction of the scroll
-                    if (deltaY > 0) {
-                        // Scroll down, shift to the previous video element
-                        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-                    } else {
-                        // Scroll up, shift to the next video element
-                        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-                    }
-
-                    var targetVideo = videos[currentVideoIndex];
-                    if (targetVideo) {
-                        // Pause previous video
-                        videos.forEach(function(video) {
-                            video.pause();
-                        });
-
-						showAllLoadingCubes()
-
-						// Remove loading animation class when video starts playing
-						targetVideo.addEventListener('canplay', function() {
-							targetVideo.classList.remove('loading-animation');
-							targetVideo.classList.add('playing');
-							hideAllLoadingCubes();
-						});
-
-                        targetVideo.addEventListener('playing', function() {
-					        hideAllLoadingCubes();
-					    });
-                        
-                        // Play target video
-                        targetVideo.play();
-                        console.log("VIDEO STARTED PLAYING!")
-
-                        videoFirstTime = false;
-
-                        if (soundUnmuted == false) {
-                            var soundToggleBtn = document.getElementById('soundToggleBtn');
-                            soundToggleBtn.classList.remove('hidden');
-                            soundUnmuted = true;
-                        }
-
-                        // Center the target player
-                        var scrollY = window.scrollY;
-                        var windowHeight = window.innerHeight;
-                        var playerTop = targetVideo.getBoundingClientRect().top + scrollY;
-                        var playerHeight = targetVideo.offsetHeight;
-                        var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
-                        // Set the scroll position to center the player
-                        window.scrollTo({
-                            top: scrollTop,
-                            behavior: 'smooth'
-                        });
-
-                        // Re-enable scrolling after 2 seconds
-                        setTimeout(function() {
-                            isScrolling = false;
-                            lastScrollTime = Date.now();
-                        }, 500);
-                    }
-                }
-            }
-        }
-
-        // Function to handle scrolling event
-        handleScroll = function(event) {
-            // Prevent default scrolling behavior
-            event.preventDefault();
-
-            // Get deltaY for mouse wheel event
-            var deltaY = -event.deltaY || 0; // Invert deltaY for mouse wheel
-
-            shuffleVideos(deltaY);
-        }
-
-        // Function to handle touch start event
-        handleTouchStart = function(event) {
-            touchStartY = event.touches[0].clientY;
-        }
-
-        // Function to handle touch end event
-        handleTouchEnd = function(event) {
-            var touchEndY = event.changedTouches[0].clientY;
-            var deltaY = touchEndY - touchStartY;
-
-            shuffleVideos(deltaY);
-        }
-
-        // Function to handle keydown event
-        handleKeydown = function(event) {
-            var deltaY = 0;
-            // Determine deltaY based on key code
-            switch (event.keyCode) {
-                case 38: // Arrow up key
-                    deltaY = 100; // Invert deltaY for keyboard
-                    break;
-                case 40: // Arrow down key
-                    deltaY = -100; // Invert deltaY for keyboard
-                    break;
-                default:
-                    return;
-            }
-
-            shuffleVideos(deltaY);
-        }
-
-        // Add keydown event listener to the window
-        window.addEventListener('keydown', handleKeydown);
-        window.addEventListener('wheel', handleScroll);
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchend', handleTouchEnd);
-
-        var soundToggleBtn = document.getElementById('soundToggleBtn');
-
-        // Add event listener to the sound toggle button
-        soundToggleBtn.addEventListener('click', function() {
-            toggleSound();
+        hashedVideo.addEventListener('play', function() {
+            showAllLoadingCubes();            
         });
 
+        hashedVideo.addEventListener('canplay', function() {
+            hashedVideo.classList.remove('loading-animation');
+            hashedVideo.classList.add('playing');
+            hideAllLoadingCubes();
+        });
+        
+        // Play the video from the URL hash
+        hashedVideo.play();
+        var soundToggleBtn = document.getElementById('soundToggleBtn');
+        soundToggleBtn.classList.remove('hidden');
+        soundUnmuted = true;
+        
+        // Update currentVideoIndex to the index of the hashed video
+        currentVideoIndex = Array.from(videos).indexOf(hashedVideo);
+
+        // Center the hashed video in the viewport after a short delay
+        setTimeout(function() {
+            var scrollY = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var playerTop = hashedVideo.getBoundingClientRect().top + scrollY;
+            var playerHeight = hashedVideo.offsetHeight;
+            var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
+            window.scrollTo({
+                top: scrollTop,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
+
+    // Disable scrolling by default
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100%';
+
+    // Function to handle shuffling between videos
+    function shuffleVideos(deltaY) {
+        if (!isScrolling && (Date.now() - lastScrollTime) > 500) {
+            if (Math.abs(deltaY) > 50) {
+                isScrolling = true;
+                // Determine the direction of the scroll
+                if (deltaY > 0) {
+                    // Scroll down, shift to the previous video element
+                    currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+                } else {
+                    // Scroll up, shift to the next video element
+                    currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                }
+
+                var targetVideo = videos[currentVideoIndex];
+                if (targetVideo) {
+                    // Pause all videos
+                    videos.forEach(function(video) {
+                        video.pause();
+                    });
+
+                    showAllLoadingCubes();
+
+                    // Remove loading animation when the video starts playing
+                    targetVideo.addEventListener('canplay', function() {
+                        targetVideo.classList.remove('loading-animation');
+                        targetVideo.classList.add('playing');
+                        hideAllLoadingCubes();
+                    });
+
+                    targetVideo.addEventListener('playing', function() {
+                        hideAllLoadingCubes();
+                    });
+                    
+                    // Play the target video
+                    targetVideo.play();
+                    console.log("VIDEO STARTED PLAYING!");
+
+                    videoFirstTime = false;
+
+                    if (soundUnmuted == false) {
+                        var soundToggleBtn = document.getElementById('soundToggleBtn');
+                        soundToggleBtn.classList.remove('hidden');
+                        soundUnmuted = true;
+                    }
+
+                    // Center the target video
+                    var scrollY = window.scrollY;
+                    var windowHeight = window.innerHeight;
+                    var playerTop = targetVideo.getBoundingClientRect().top + scrollY;
+                    var playerHeight = targetVideo.offsetHeight;
+                    var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
+                    window.scrollTo({
+                        top: scrollTop,
+                        behavior: 'smooth'
+                    });
+
+                    // Re-enable scrolling after 500ms
+                    setTimeout(function() {
+                        isScrolling = false;
+                        lastScrollTime = Date.now();
+                    }, 500);
+                }
+            }
+        }
+    }
+
+    // Function to handle scrolling event
+    handleScroll = function(event) {
+        // Prevent default scrolling behavior
+        event.preventDefault();
+
+        // Get deltaY for mouse wheel event (inverted for our use)
+        var deltaY = -event.deltaY || 0;
+        shuffleVideos(deltaY);
+    }
+
+    // Function to handle touch start event
+    handleTouchStart = function(event) {
+        touchStartY = event.touches[0].clientY;
+    }
+
+    // Function to handle touch end event
+    handleTouchEnd = function(event) {
+        var touchEndY = event.changedTouches[0].clientY;
+        var deltaY = touchEndY - touchStartY;
+        shuffleVideos(deltaY);
+    }
+
+    // Function to handle keydown event
+    handleKeydown = function(event) {
+        var deltaY = 0;
+        // Determine deltaY based on key code
+        switch (event.keyCode) {
+            case 38: // Arrow up key
+                deltaY = 100; // Inverted for our use
+                break;
+            case 40: // Arrow down key
+                deltaY = -100; // Inverted for our use
+                break;
+            default:
+                return;
+        }
+        shuffleVideos(deltaY);
+    }
+
+    // Add keydown, wheel, and touch event listeners
+    window.addEventListener('keydown', handleKeydown);
+    window.addEventListener('wheel', handleScroll);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    var soundToggleBtn = document.getElementById('soundToggleBtn');
+
+    // Add event listener to the sound toggle button
+    soundToggleBtn.addEventListener('click', function() {
+        toggleSound();
+    });
+}
+// VIDEO SHUFFLE CODE END
 
 
     // Image Lazy-Loader Code!
