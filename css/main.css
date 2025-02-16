@@ -247,6 +247,10 @@ background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZ
     background-color: black !important;
 }
 
+.video-player-container.longform {
+    margin-top: 25px; /* Adjusted for longform */
+    margin-bottom: 25px; /* Adjusted for longform */
+}
 
 .video-player-container h3 {
     font-size: 0.8em;

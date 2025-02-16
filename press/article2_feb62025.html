@@ -6,7 +6,7 @@
     <title>Book of Princess Khan &ndash; Chapter III</title>
     <meta name="description" content="Essays and Blogs of Princess Khan - Creator of Sylvie 2024.">
     <meta name="keywords" content="Princess Khan, Pala, Engineer, Philosopher, Writer, Film Director, Sylvie 2024, Sylvie 2020, Sylvie 2021, Sylvie 2022, Sylvie 2023, foss, llama, anarchism, primitivism, socialism, marxism, capitalism, transgender, LGBTQ, fascism">
-    <link rel="stylesheet" href="/css/main.css?v=8.40">
+    <link rel="stylesheet" href="/css/main.css?v=8.42">
     <style>
       li {
         margin-bottom: 15px;
@@ -60,6 +60,7 @@
             </div>
                <div style="font-size: 0.8em; border-bottom: 1px solid #c9c9c9; background-color: rgba(240, 240, 240, 1);"><i>"The intricate Prison of Suburbia."</i></div>
             <br></center>
+        <p style="font-size: 0.8em; background-color: rgba(128, 128, 128, 0.25); padding: 5px; border-radius: 5px;"><span id="view-counter">Loading views...</span></p>                
         <p><b>3:1</b> “I am the Everlasting Flame of Wrath—like the Sun that warms the Earth, and the burning Core at its Bottom—for as Above, so Below!” …The Joys of the Material Realm of Barriers, and Limitations, are greater than the Joys of the Realm of Dreams, Ideas, and the Fancy—and it is over the Privilege to indulge in the Pleasures and Offerings of the Material Realm, that many a Battle haꞇe long been waged.</p>
         <p><b>3:2</b> The Joys of the Material Realm are scarce—unlike the Joys of the Realm of the Fancy, which are boundless, and plentiful—yet nowhere near as vivid and tangible as the former. Land and Real Estate is scarce. Water is scarce. Food is scarce. Useful Knowledge and Objective Truth is scarce. And so on, and so forth.</p>
         <p><b>3:3</b> Terrans are Monsters who drool over Money, Capital, Land and Real Estate—and will happily squash the Meek and Defenseless to the Fringes, and even enslave them for their physical Labour, and their LOOSH—so that they can keep all of the Pleasures and Offerings of the Material Realm for themselves.</p>
@@ -120,10 +121,27 @@
       </div>
       <!-- Chapter 1 end -->
     </main>
+<script>
+	const pageId = '202062025'; // Set a unique page ID for this page (as a string)
+
+    // Make sure the URL to counter.php is correct and relative to the page
+    fetch('../counter.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Required for form data
+        },
+        body: 'page_id=' + encodeURIComponent(pageId) // Send page_id as form data
+    })
+    .then(response => response.text())
+    .then(views => {
+        document.getElementById("view-counter").textContent = `Views: ${views}`;
+    })
+    .catch(error => console.error("Error fetching view count:", error));
+</script>    
     <script>
       var mainElement = document.querySelector('main');
       mainElement.classList.add('fade-in');
     </script>
-    <script src="/java/main.js?v=13.41"></script>
+    <script src="/java/main.js?v=13.61"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Book of Princess Khan &ndash; Chapter VI</title>
     <meta name="description" content="Essays and Blogs of Princess Khan - Creator of Sylvie 2024.">
     <meta name="keywords" content="Princess Khan, Pala, Engineer, Philosopher, Writer, Film Director, Sylvie 2024, Sylvie 2020, Sylvie 2021, Sylvie 2022, Sylvie 2023, foss, llama, anarchism, primitivism, socialism, marxism, capitalism, transgender, LGBTQ, fascism">
-    <link rel="stylesheet" href="/css/main.css?v=8.40">
+    <link rel="stylesheet" href="/css/main.css?v=8.42">
     <style>
       li {
         margin-bottom: 15px;
@@ -60,6 +60,7 @@
             </div>
                <div style="font-size: 0.8em; border-bottom: 1px solid #c9c9c9; background-color: rgba(240, 240, 240, 1);"><i>"The Time-Traveling Warrior Pharaoh Queen"</i></div>
             <br></center>
+        <p style="font-size: 0.8em; background-color: rgba(128, 128, 128, 0.25); padding: 5px; border-radius: 5px;"><span id="view-counter">Loading views...</span></p>    
         <p><b>6:1</b> What are the Disadvantages of being a Witch in the modern Age? …Nobody will give you Credit for the Work that you do. And what are the Advantages of being a Witch in the Modern Age? …Nobody will Persecute you for the Work that you do. Or will they?</p>
         <p><b>6:2</b> “Good to see you again… Gingerbread Girl!” Dr. Natalie Deane waved to the Princess, holding a Clipboard stacked on top of the Diagnostic Manual for Mental Disorders. “How’s Life been treating you thus far?”</p>
         <p><b>6:3</b> “I’ve been experiencing Arrythmias, and Heart Palpitations.” Ms. Khan replied. “I’ll be the first to admit—my Days are kind of numbered. Which is why I have set out to spend the… potentially [last] Hours of my Life, living as authentically as I possibly can, and according to my innermost Beliefs and Convictions.”</p>
@@ -131,10 +132,27 @@
       </div>
       <!-- Chapter 1 end -->
     </main>
+<script>
+	const pageId = '102102025'; // Set a unique page ID for this page (as a string)
+
+    // Make sure the URL to counter.php is correct and relative to the page
+    fetch('../counter.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Required for form data
+        },
+        body: 'page_id=' + encodeURIComponent(pageId) // Send page_id as form data
+    })
+    .then(response => response.text())
+    .then(views => {
+        document.getElementById("view-counter").textContent = `Views: ${views}`;
+    })
+    .catch(error => console.error("Error fetching view count:", error));
+</script>    
     <script>
       var mainElement = document.querySelector('main');
       mainElement.classList.add('fade-in');
     </script>
-    <script src="/java/main.js?v=13.41"></script>
+    <script src="/java/main.js?v=13.61"></script>
   </body>
 </html>

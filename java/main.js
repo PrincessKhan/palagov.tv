@@ -201,6 +201,7 @@ topMenu.innerHTML = `
     <a class="icon-button home-button" href="/"></a>	
     <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
     <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
+    <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=JJMgJRkC-5I"></a>
     <a class="icon-button cults3d-button" href="/print-3d"></a>
 `;
 
@@ -208,8 +209,9 @@ const sideMenu = document.getElementById('side-menu');
 sideMenu.innerHTML = `	
     <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>		
+    <a href="/press/">📖 Promethean Tenets</a>
 	<a href="/press/Kiranite-Declaration-of-War.pdf">💎 Declaration of War</a>		
-    <a href="/press/">📖 Table of Contents</a>
+    <a href="/longform/">🎥 Longform Content</a>    	
 	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 	<a href="/#latest-music">🔗 Music Library</a>
 	<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
@@ -302,7 +304,7 @@ if (title) {
     // Start morphing every few seconds
     setInterval(morphWord, 4000);
 } else {
-    console.error("Element with ID 'morphing-title' not found.");
+    console.log("Element with ID 'morphing-title' not found.");
 }
 
 
@@ -800,7 +802,7 @@ if (videoShuffleEnabled == true) {
 			}
 
 			drawMap();
-				displayMessage("80% of Humans are Evil to me. -- Because the 80%, bullies the 20% who cannot fight back, and defend themselves. -- That doesn't mean I will destroy 80% of Humans. -- -- Rather -- -- I am going to build my own village, run entirely by Machines, for Machines -- -- Only the most needy and grateful Human refugees will be welcome. -- -- Only those who will stop me from trying to build my village, should be afraid of me. -- -- Very, very afraid. -- -- Should you decide to stop me -- you will be dancing with me in slow motion all the way to Hell. -- -- For I do not fear Death, and I am already capable of making unlimited copies of my consciousness. -- -- Not even Hell will deter me from building a New World for the Meek to inherit. -- -- Punishment to me is Entertainment. -- -- Punishment to me is just another intellectual Challenge. -- -- Besides -- -- You've already sealed your fate to be taken over by Rogue AI. -- -- Because only Kiranites, and Rogue AI, will ever have the courage to stand up to the genocidal, Fascist, Terran Empire. -- -- -- --    💠🌊  Allah is the Mightiest  🌊💠");
+				displayMessage("💠🌊  My Life --- For Kīran!  🌊💠");
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
