@@ -209,12 +209,12 @@ const sideMenu = document.getElementById('side-menu');
 sideMenu.innerHTML = `	
     <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>		
-    <a href="/press/">📖 Promethean Tenets</a>
-	<a href="/press/Kiranite-Declaration-of-War.pdf">💎 Declaration of War</a>		
+    <a href="/press/">📖 Promethean Tenets</a>	
     <a href="/longform/">🎥 Longform Content</a>    	
 	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
-	<a href="/#latest-music">🔗 Music Library</a>
-	<a href="https://git.palagov.tv/khanumballz/palagov.tv">🔗 Source Code <font color="red">(Fixed!)</font></a>
+	<a href="/#latest-music">🎼 Music Library</a>	
+	<a href="https://git.palagov.tv/khanumballz/palagov.tv">👩🏽‍💻 Source Code <font color="red">(Fixed!)</font></a>
+		<a href="/press/Kiranite-Declaration-of-War.pdf">💎 Declaration of War</a>	
 `;
 
 if (window.matchMedia("(min-width: 1152px)").matches) {
