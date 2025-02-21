@@ -1,0 +1,26 @@
+20 10
+P 1 1
+
+S 1 3 "a scroll that says: Neither you Simon, nor the Fifty Thousand. Nor the Romans, nor the Jews. Nor Judas, nor the Twelve, nor the Priests, nor the Scribes....... Nor doomed Jerusalem itself ------- Understand what Power is! ------------- Understand what Glory is! ------------ Understand at all..............    🎄💠  -Understand at all!-  💠🎄"
+S 8 2 "a scroll that says: To carry your cross, and follow Jesus means: to accept all the pain and injustice in the world, without retaliation, without resentment, and without revenge. So that the Evil can be contained through [your] soul, and through the soul of Christ.............it's not for everyone, though;    🎄💠  --Only the Damned!--  💠🎄"
+S 12 3 "a scroll that says: The Kingdom of Heaven is not for everyone. There are many different [types] of Heaven. The Warrior's Realm... The Lover's Realm... the Merchant's Realm... etc. etc.  🎄💠 ----Mary Hail 370!---- 💠🎄"
+S 10 8 "a scroll that says: Kiranites celebrate Christmas, and worship Allah -- but ultimately do not follow Jesus. -- For the message of Jesus has long been corrupted and weaponized to serve the ends of the aristocratic Elite, in order to subjugate the lower class, and keep them enslaved.   🎄💠 ----Mary Hail 370!---- 💠🎄"
+
+C 6 4 "a Holy Bible. This is not a book meant to be taken literally, but rather -- it contains a little more than two thousand years full of wisdom as it relates to Mankind, and the ethical dilemmas they've had to face over, and over again, in order to be able to build high-functioning, large-scale Civilizations. It's basically just Philosophy --     🎄💠 ---But for Grownups--- 💠🎄"
+C 1 7 "a Pillar Candle! This is the second candle of the Advent -- the one you light 3 Sundays prior to Christmas Eve.    🎄💠 ----Mary Hail 370!---- 💠🎄"
+C 18 2 "another Pillar candle! This is the third candle of the Advent -- the one you light 2 Sundays prior to Christmas Eve.     🎄💠 ----Mary Hail 370!---- 💠🎄"
+C 18 7 "the last Pillar candle! This is the fourth candle of the Advent -- the one you light on the last Sunday prior to Christmas Eve.     🎄💠 ----Mary Hail 370!---- 💠🎄"
+
+D 19 8 "../games/map1_nov212024_v1.txt"
+
+####################
+#@#.....###......#.#
+#.#.....S.#......#C#
+#S...####.##S#.....#
+#....#C##.####.....#
+#.......#.#........#
+#.......#.#........#
+#C#.....#.#......#C#
+#.#.....#.S......#.D
+#######E############
+

@@ -201,7 +201,8 @@ topMenu.innerHTML = `
     <a class="icon-button home-button" href="/"></a>	
     <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
     <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
-    <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=JJMgJRkC-5I"></a>
+    <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=HQ5dYvyp-AA"></a>
+    <a class="icon-button reddit-button" href="https://www.reddit.com/r/PrometheanFaith"></a>
     <a class="icon-button cults3d-button" href="/print-3d"></a>
 `;
 
@@ -209,12 +210,11 @@ const sideMenu = document.getElementById('side-menu');
 sideMenu.innerHTML = `	
     <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>		
-    <a href="/press/">📖 Promethean Tenets</a>	
+    <a href="/press/article1_feb32025.html">📖 Promethean Tenets</a>
     <a href="/longform/">🎥 Longform Content</a>    	
 	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 	<a href="/#latest-music">🎼 Music Library</a>	
 	<a href="https://git.palagov.tv/khanumballz/palagov.tv">👩🏽‍💻 Source Code <font color="red">(Fixed!)</font></a>
-		<a href="/press/Kiranite-Declaration-of-War.pdf">💎 Declaration of War</a>	
 `;
 
 if (window.matchMedia("(min-width: 1152px)").matches) {
@@ -745,8 +745,8 @@ if (videoShuffleEnabled == true) {
    
 	// Game settings
 	let WIDTH, HEIGHT;
-	const EXIT_X = 7; // Example X coordinate for the exit
-	const EXIT_Y = 9;  // Example Y coordinate for the exit
+	//const EXIT_X = 7; // Example X coordinate for the exit
+	//const EXIT_Y = 9;  // Example Y coordinate for the exit
 
 	const PLAYER = '@';
 	const WALL = '#';
@@ -757,7 +757,7 @@ if (videoShuffleEnabled == true) {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/map1_jan282025_v3.txt') {
+	async function loadMap(filePath = '../games/central_plaza.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -792,6 +792,8 @@ if (videoShuffleEnabled == true) {
 						gameState.scrolls.push({ x: coordX, y: coordY, read: false, text: content });
 					} else if (type === 'D') {  // New condition for doors
 						gameState.doors.push({ x: coordX, y: coordY, mapFile: content });
+					} else if (type === 'E') {
+						gameState.exits.push({ x: coordX, y: coordY, videoPointer: content })
 					}
 				}
 			}
@@ -802,7 +804,7 @@ if (videoShuffleEnabled == true) {
 			}
 
 			drawMap();
-				displayMessage("💠🌊  My Life --- For Kīran!  🌊💠");
+				displayMessage("Welcome to the Promethean Khalifate -- -- a Faith that was created by Princess Khan, as a means of enabling Gender Non-Conforming Invidiuals to partake in the Rituals of Islam, without causing Friction among traditional Muslims. -- -- We embrace Mysticism, Psionics and Self-Empowerment Programs to make up for our low Numbers. -- -- Each Promethean Kiranite ought to be as powerful and capable as 1,000 Human Beings. -- -- We seek to acquire Power by any means necessary, and through sheer Strength of Will; -- for it is the only way to restore Balance to a World dominated by the Terran Empire, and their Zionist Henchmen. -- -- -- --  💠✨  Allah is the Mightiest  ✨💠");
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
@@ -815,6 +817,7 @@ if (videoShuffleEnabled == true) {
 			playerY: 1,
 			chests: [],
 			scrolls: [],
+			exits: [],
 			doors: [],  // Initialize the doors array
 			map: []
 		};
@@ -845,7 +848,7 @@ if (videoShuffleEnabled == true) {
 				}
 
 				// Ensure the exit is drawn if it's at this position
-				if (x === EXIT_X && y === EXIT_Y) {
+				if (gameState.exits.some(exit => exit.x === x && exit.y === y)) {
 					symbol = EXIT;
 				}
 
@@ -943,20 +946,51 @@ if (videoShuffleEnabled == true) {
 		// Check if player reached a door
 		let door = gameState.doors.find(door => door.x === newX && door.y === newY);
 		if (door) {
-			displayMessage('You found a door! Loading the next area...');
+			displayMessage('You found a Door! Loading the next Area...');
 			setTimeout(() => loadMap(door.mapFile), 1000); // Load the new map after a short delay
 			console.log(door.mapFile);
 			return;
 		}
 
 		// Check if player reached the exit
-		if (newX === EXIT_X && newY === EXIT_Y) {
-			displayMessage('You found the exit! Congratulations!');
+		let exit = gameState.exits.find(exit => exit.x === newX && exit.y === newY);
+		if (exit) {
+			displayMessage('You found a Video Tape! Now Playing...');
 
 			// Delay the reset by 3 seconds
-			setTimeout(function() {
-				videoFirstTime = false;  // Set videoFirstTime to false
-				scrollToFirstVideo();    // Scroll to the first video
+			setTimeout(function() {			
+				console.log('Game Video ID:', exit.videoPointer);
+
+				var gameHashedVideo = document.getElementById(exit.videoPointer);
+				
+				gameHashedVideo.addEventListener('play', function() {
+					showAllLoadingCubes();            
+				});
+
+				gameHashedVideo.addEventListener('canplay', function() {
+					gameHashedVideo.classList.remove('loading-animation');
+					gameHashedVideo.classList.add('playing');
+					hideAllLoadingCubes();
+				});
+				
+				// Play the video from the URL hash
+				gameHashedVideo.play();
+				var soundToggleBtn = document.getElementById('soundToggleBtn');
+				soundToggleBtn.classList.remove('hidden');
+				soundUnmuted = true;
+				
+				// Update currentVideoIndex to the index of the hashed video
+				currentVideoIndex = Array.from(videos).indexOf(gameHashedVideo);				
+					
+				var scrollY = window.scrollY;
+				var windowHeight = window.innerHeight;
+				var playerTop = gameHashedVideo.getBoundingClientRect().top + scrollY;
+				var playerHeight = gameHashedVideo.offsetHeight;
+				var scrollTop = playerTop - (windowHeight / 2) + (playerHeight / 2);
+				window.scrollTo({
+					top: scrollTop,
+					behavior: 'smooth'
+				});				
 			}, 3000);
 
 			return;

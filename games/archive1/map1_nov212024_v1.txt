@@ -1,0 +1,23 @@
+20 10
+P 1 1
+C 10 2 "an Aqua Aura Crystal! These are essentially 'Telephones' that you can use in order to establish a psionic and telepathic Link to your Homeworld, if in case you end up stranded on a foreign Planet."
+C 9 5 "a Golden Lighter! It's actually more of a Dagger, though it needs to be mounted on a Kiranite Bracelet for it to function as such..."
+C 12 4 "a Kiranite Bracelet! You may now slide your Golden Lighter into the corresponding slot in order to form a Kiranite Dagger."
+S 7 4 "a scroll that says: 'Welcome to Planet Kiran, also known as YZ Ceti B -- an Earth-sized exoplanet orbiting the Red Dwarf YZ Ceti. Red Dwarf Stars will outlast the Sun of the Terran Star System, long after its flames have been extinguished. Its inhabitants, the Astromārī⃑ans, were among the first sentient Lifeforms to have been created by Allah before he set out to create Mankind; known to Earthlings only as the Jinn!'"
+S 10 7 "a scroll that says: 'There are three Earth-sized Planets orbiting the Kiranite Star System: YZ Ceti B, YZ Ceti C and YZ Ceti D. YZ Ceti B belongs to the the Astromārī⃑an Race; Voyagers of both the Ocean, and the Void Beyond. YZ Ceti C and D, on the other hand, are home to the Nexians -- foreign Invaders, Shape-shifters and Body-Snatchers who have ruined our Homeworld, and cast us out as Refugees!'"
+S 18 1 "a scroll that says: 'Why does Allah put up with Chaos, Suffering, Evil and Hubris -- if he is indeed the all-knowing and all-mighty Lord of the whole Universe? Because -- Without the Chaos, you and me would not exist. Hubris allows for an Entity to experience Growth, Evolution and greater Complexity; until the Chaos becomes far too great for the Entity to manage. Do not be afraid to grow, and strive for greater Power and Knowledge -- but beware of the limits of Pride, and Hubris!'"
+S 1 8 "a scroll that says: '...through Galaxy's Haze, we pave the Way. With Solar Winds, we seize the Day. From dusty Roots, to Stars so bright... You must construct -- additional Pylons!'"
+S 13 6 "a scroll that says: 'Astromārī⃑ans cannot follow the Teachings of the Prophet Mohammed, for although we bow to Allah -- we do not come from Planet Earth, and nor do we possess a fixed and binary Gender!'"
+D 19 8 "../games/map1_nov212024_v1.txt"
+
+####################
+#@................S#
+#.......##C#.......#
+#.....##....##.....#
+#....##S#..#C##....#
+#....##..C#..##....#
+#.....##.#..#S.....#
+#.......##S#.......#
+#S.................D
+#######E############
+
