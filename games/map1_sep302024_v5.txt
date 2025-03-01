@@ -7,8 +7,12 @@ S 7 4 "a scroll that says: 'Welcome to Planet Kiran, also known as YZ Ceti B -- 
 S 10 7 "a scroll that says: 'There are three Earth-sized Planets orbiting the Kiranite Star System: YZ Ceti B, YZ Ceti C and YZ Ceti D. YZ Ceti B belongs to the the Astromārī⃑an Race; Voyagers of both the Ocean, and the Void Beyond. YZ Ceti C and D, on the other hand, are home to the Nexians -- foreign Invaders, Shape-shifters and Body-Snatchers who have ruined our Homeworld, and cast us out as Refugees!'"
 S 18 1 "a scroll that says: 'Why does the Lord put up with Chaos, Suffering, Evil and Hubris -- if he is indeed the all-knowing and all-mighty Lord of the whole Universe? Because -- Without the Chaos, you and me would not exist. Hubris allows for an Entity to experience Growth, Evolution and greater Complexity; until the Chaos becomes far too great for the Entity to manage. Do not be afraid to grow, and strive for greater Power and Knowledge -- but beware of the limits of Pride, and Hubris!'"
 S 1 8 "a scroll that says: '...through Galaxy's Haze, we pave the Way. With Solar Winds, we seize the Day. From dusty Roots, to Stars so bright... You must construct -- additional Pylons!'"
-S 13 6 "a scroll that says: 'Astromārī⃑ans cannot follow the Teachings of the Prophet Mohammed, for although we bow to the Lord -- we do not come from Planet Earth, and nor do we possess a fixed and binary Gender!'"
-D 19 8 "../games/map1_nov212024_v1.txt"
+S 13 6 "a scroll that says: 'Astromārī⃑ans, and followers of the Promethean Faith, cannot follow the Teachings of the Prophet Mohammed, for although we bow to the Lord -- we do not come from Planet Earth, and nor do we possess a fixed and binary Gender!'"
+D 19 8 "../games/map1_dec32024_v5.txt"
+
+D 1 9 "../games/central_plaza_2.txt"
+
+E 7 9 "player1_mar212024"
 
 ####################
 #@................S#
@@ -19,5 +23,5 @@ D 19 8 "../games/map1_nov212024_v1.txt"
 #.....##.#..#S.....#
 #.......##S#.......#
 #S.................D
-#######E############
+#D#####E############
 

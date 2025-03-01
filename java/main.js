@@ -201,17 +201,18 @@ topMenu.innerHTML = `
     <a class="icon-button home-button" href="/"></a>	
     <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
     <a class="icon-button bluesky-button" href="https://bsky.app/profile/princesskhan.bsky.social"></a>
-    <a class="icon-button youtube-button" href="https://www.youtube.com/watch?v=HQ5dYvyp-AA"></a>
+    <a class="icon-button youtube-button" href="https://www.youtube.com/@TimeTravelSociety-l1v"></a>
     <a class="icon-button reddit-button" href="https://www.reddit.com/r/PrometheanFaith"></a>
     <a class="icon-button cults3d-button" href="/print-3d"></a>
 `;
+
+//    <a href="/longform/">🎥 Longform Content</a>   
 
 const sideMenu = document.getElementById('side-menu');
 sideMenu.innerHTML = `	
     <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
 	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>		
-    <a href="/press/article1_feb32025.html">📖 Promethean Tenets</a>
-    <a href="/longform/">🎥 Longform Content</a>    	
+    <a href="/press/article1_feb32025.html">📖 Promethean Tenets</a>	
 	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 	<a href="/#latest-music">🎼 Music Library</a>	
 	<a href="https://git.palagov.tv/khanumballz/palagov.tv">👩🏽‍💻 Source Code <font color="red">(Fixed!)</font></a>
@@ -757,7 +758,7 @@ if (videoShuffleEnabled == true) {
 	const DOOR = 'D';  // New symbol for doors
 
 	// Function to parse the map file
-	async function loadMap(filePath = '../games/central_plaza.txt') {
+	async function loadMap(filePath = '../games/central_plaza_2.txt') {
 		try {
 			const response = await fetch(filePath); // Use the provided file path or default to map1
 			if (!response.ok) {
@@ -804,7 +805,7 @@ if (videoShuffleEnabled == true) {
 			}
 
 			drawMap();
-				displayMessage("Welcome to the Promethean Khalifate -- -- a Faith that was created by Princess Khan, as a means of enabling Gender Non-Conforming Invidiuals to partake in the Rituals of Islam, without causing Friction among traditional Muslims. -- -- We embrace Mysticism, Psionics and Self-Empowerment Programs to make up for our low Numbers. -- -- Each Promethean Kiranite ought to be as powerful and capable as 1,000 Human Beings. -- -- We seek to acquire Power by any means necessary, and through sheer Strength of Will; -- for it is the only way to restore Balance to a World dominated by the Terran Empire, and their Zionist Henchmen. -- -- -- --  💠✨  Allah is the Mightiest  ✨💠");
+				displayMessage("Welcome to the Island, and welcome to the Promethean Khalifate. -- -- Prophet Princess Khan, as a Queer supporter of Palestinian Liberation and Independence, saw the contradictions inherent to the Queers for Palestine movement, and set out to create a Faith that could enable Gender Non-Conforming Individuals to partake in the Rituals of Islam, without causing Friction among traditional Muslims. -- -- We embrace Mysticism, Psionics, Arcane Engineering, and Self-Empowerment Programs as a means of surviving the precarity of our respective Timelines. -- -- Each Promethean Kiranite ought to be as powerful and capable as 1,000 Human Beings. -- -- The Singularity is just around the Corner -- so set aside your differences, grab a coffee, and buckle up -- -- It's going to be one Hell of a turbulent Ride! -- -- -- --  💠✈️   ----Mary Hail 370----  ✈️💠");
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}

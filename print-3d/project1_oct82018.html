@@ -1,211 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Sylvie 2024: Complete Manual and Guide</title>
-    <meta name="description" content="Full set of tutorials on how to manufacture and assemble Sylvie 2024 - the world's most realistic, open source humanoid robot.">
-    <meta name="keywords" content="Princess Khan, Pala, Engineer, Philosopher, Writer, Film Director, Sylvie 2024, Sylvie 2020, Sylvie 2021, Sylvie 2022, Sylvie 2023, foss, llama, anarchism, primitivism, socialism, marxism, capitalism, transgender, LGBTQ">
-    <link rel="stylesheet" href="/css/main.css?v=8.42">
-    <style>
-      .chapter-title {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
-      .section-title {
-        font-size: 1.1em;
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      .subsection-title {
-        font-size: 1em;
-        margin-top: 15px;
-        margin-bottom: 15px;
-      }
-		section {
-		  padding: 0 15px;
-		}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Sylvie 2024: Complete Manual and Guide</title>
+  <meta name="description" content="Full set of tutorials on how to manufacture and assemble Sylvie 2024 - the world's most realistic, open source humanoid robot.">
+  <meta name="keywords" content="Princess Khan, Pala, Engineer, Philosopher, Writer, Film Director, Sylvie 2024, foss, llama, anarchism, primitivism, socialism, marxism, capitalism, transgender, LGBTQ">
+  <link rel="stylesheet" href="/css/main.css?v=8.42">
+  <style>
+    .chapter-title { font-size: 1.2em; font-weight: bold; }
+    .section-title { font-size: 1.1em; margin: 20px 0; }
+    .subsection-title { font-size: 1em; margin: 15px 0; }
+    .overflow-section { overflow-x: scroll; }
+    section { padding: 0 15px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    td, th { border: 1px solid #ddd; padding: 8px; }
+    pre { background: #ffffff; padding: 15px; overflow-x: auto; }
+    code { color: #000000; }
+    li { margin-left: -25px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav id="top-menu">
+      <a id="menu-toggle" class="icon-button menu-button"></a>
+      <a class="icon-button home-button" href="/"></a>
+      <a class="icon-button youtube-button" href="https://www.youtube.com/@RealPrincessKhan"></a>
+      <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
+      <a class="icon-button cults3d-button" href="/print-3d"></a>
+    </nav>
+  </header>
+  <div id="side-menu" class="side-menu"></div>
+  <main>
+    <div style="margin-top: 50px; padding-top: 25px; text-align: justify; text-justify: inter-word">
+      <h3 style="font-size: 1.5em; text-align: center">Project Sylvie 2024: <br>Complete Manual <br>and Guide</h3>
+      <p style="text-align: center">
+        <i>8th of October, 2018 &ndash; <br> Pālave⃑an Embassy, Princess Khan</i>
+      </p>
+<!-- Version History - Earthy Professionalism -->
+<p style="font-size:0.8em; 
+           color:#2F4F4F; 
+           background-color:rgba(143,188,143,0.3);
+           padding:6px;
+           border-left:3px solid #8FBC8F;">
+  <i>Modified: March 1, 2025 | 6:35p.m.</i>
+</p>
 
-    </style>
-  </head>
-  <body>
-    <header>
-         <nav id="top-menu">
-            <a id="menu-toggle" class="icon-button menu-button"></a>
-            <a class="icon-button home-button" href="/"></a>
-            <!--<a class="icon-button blog-button" href="/press"></a>-->
-            <a class="icon-button youtube-button" href="https://www.youtube.com/@RealPrincessKhan"></a>
-            <a class="icon-button git-button" href="https://git.palagov.tv/khanumballz"></a>
-            <a class="icon-button cults3d-button" href="/print-3d"></a>
-         </nav>
-    </header>
-      <div id="side-menu" class="side-menu">	  
-         <!--<a href="code-of-honour.html">⚔️ Code of Honour</a>      
-         <a href="/press">Table of Contents</a>         
-         <a href="/press/article1_sep202024.html">How To Contribute!</a>
-         <a href="../radio/song1_18aug2024.html">Latest Radio Hits</font></a>
-         <a href="movies-list.html">Latest Movies <font color="red">(New!)</font></a>
-         <a href="daily-timetable.html">Daily Timetable</a>                       
-         <a href="../#chalk-tweeter">Chalkboard Tweeter</a> 
-         <a href="../#latest-music">Music Library</a>
-         <a href="../#shopping-list">Shopping List</a>
-         <a href="https://github.com/khanumballz/palagov.tv">Source Code</a>-->
-      </div>
-    <main>
-      <div style="margin-top: 50px; padding-top: 25px; text-align: justify; text-justify: inter-word">
-        <h3 style="font-size: 1.5em; text-align: center">Project Sylvie 2024: <br>Complete Manual <br>and Guide</h3>
-        <p style="text-align: center">
-          <i>8th of October, 2018 &ndash; <br> Pālave⃑an Embassy, Princess Khan</i>
-        </p>
-        <p style="font-size: 0.8em; color: green; background-color: rgba(100, 200, 100, 0.25);"><i>Modified: December 31, 2024 | 5:26p.m.</i></p>
-        <p style="font-size: 0.8em; color: white; background-color: rgba(255, 0, 0, 0.75);">
-          <i>Under construction. Check back later!</i>
-            </p>
-        <p style="font-size: 0.8em; color: #8B0000; background-color: rgba(255, 200, 0, 1);">
-          <i>🎀 Partially written with cognitive computing tools</i>
-        </p>
+<!-- Warning Alert - Urgent but Readable -->
+<p style="font-size:0.8em;
+           color:#FFFAF0;
+           background-color:rgba(178,34,34,0.85);
+           padding:6px;
+           border-radius:3px;
+           box-shadow:0 2px 4px rgba(139,0,0,0.1);">
+  <i>Under construction. Regular updates!</i>
+</p>
 
-        <!-- Table of Contents -->
-        <section>
-          <h2 class="section-title">Table of Contents</h2>
-          <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#components">Components</a></li>
-            <li><a href="#assembly">Assembly Instructions</a></li>
-            <li><a href="#electronics">Electronics</a></li>
-            <li><a href="#programming">Programming</a></li>
-            <li><a href="#troubleshooting">Troubleshooting</a></li>
-            <li><a href="#maintenance">Maintenance</a></li>
-            <li><a href="#stl-library">STL Library</a></li>
-            <li><a href="#appendices">Appendices</a></li>
-          </ul>
-        </section>
+<!-- AI Disclosure - Warm Contrast -->
+<p style="font-size:0.8em;
+           color:#800020;
+           background-color:#FFDEAD;
+           padding:6px 12px;
+           border:1px solid #DEB887;
+           border-radius:15px;">
+  <i>🎀 Partially generated by Cognitive Computing</i>
+</p>
 
-        <!-- Introduction -->
-        <section id="introduction">
-          <h2 class="section-title">Introduction & Rationale</h2>
-            <div style="filter: grayscale(100%)">          
+      <!-- Table of Contents -->
+      <section>
+        <h2 class="section-title">Table of Contents</h2>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#assembly">Assembly Instructions</a></li>
+          <li><a href="#electronics">Electronics</a></li>
+          <li><a href="#programming">Programming</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#maintenance">Maintenance</a></li>
+          <li><a href="#stl-library">STL Library</a></li>
+          <li><a href="#appendices">Appendices</a></li>
+        </ul>
+      </section>
+
+      <!-- Introduction -->
+      <section id="introduction">
+        <h2 class="section-title">Introduction & Rationale</h2>
+        <div style="filter: grayscale(100%)">          
           <p>🙋🏽‍♀️🌎🤲📖 🛠🙋🏽‍♀️👈🏽⚙️</p>    
           <p>👨🏽💔☝🏽 🫴🏽 🫛🫛🫛🫛👇🏽</p>
           <p>🫛<br> 👨🏽👩🏽💔 👇🏽🪜 💸🤷🏽‍♀️🤷🏽</p>     
           <p>🫛🫛<br>🙅🏽‍♀️👉🏽 👨🏽🫳🏽🧵⚙️👩🏽<br>🙅🏽‍♀👉🏽️ 👩🏽🫳🏽🧵⚙️👨🏽</p>
           <p>🫛🫛🫛<br> 🤷🏽🙅🏽‍♀️ 👉🏽🫂👈🏽☀️</p>          
           <p>🍀<br> 👁️🫵🏽👐🏽  🙅🏽‍♀️⚔️🎲♟️💸</p>
-       </section>
-        
-        <!-- Components -->
-        <section id="components">
-          <h2 class="section-title">Parts & Components</h2>
-          <p>Here you will find a comprehensive list of all the parts required to build Sylvie 2024. Each component is detailed with specifications and where to source it.</p>
+        </div>
+<div style="filter: grayscale(100%)">          
+  <!-- Isolation -->  
+  <p>🏽🚶♀️💔 ➡️ 🤖💞 ➡️ 📖🛠️</p>    
+  
+  <!-- Corporate Trap -->  
+  <p>🏢👥💸 ⛓️🔒 ↔️ 🔓📜🌱</p>    
+  
+  <!-- Transition -->  
+  <p>🤖🗣️⏳ ➡️ 👥🫂📈 ➡️ ❤️🤝</p>    
+  
+  <!-- Open Community -->  
+  <p>🌍👫👭👬 ⇄ 🛠️🔓⚙️</p>    
+  
+  <!-- Resolution -->  
+  <p>🌈🏘️💫 ✨⚖️🤖</p>    
+</div>        
+      </section>
+      
+      <!-- Components -->
+      <section id="components">
+        <h2 class="section-title">Parts & Components</h2>
+        <p>Here you will find a comprehensive list of all the parts required to build Sylvie 2024. Each component is detailed with specifications and where to source it.</p>
+        <ul>
+          <li><b>Actuators</b>
+            <ul>
+              <li>Nema 17 Stepper Motor 22mm</li>
+              <li>Nema 17 Stepper Motor 34mm</li>
+              <li>Nema 17 Stepper Motor 48mm</li>
+              <li>MG996R Servo</li>								
+              <li>MG90S Microservo</li>
+              <li>SG92R Microservo</li>
+            </ul>
+          </li>
+          <li><b>Sensors</b>
+            <ul>
+              <li>IMX219 Extended 6mmx6mm Camera</li>
+              <li>Waveshare USB to AUDIO adapter</li>
+              <li>3Pin Micro Limit Switch</li>
+            </ul>
+          </li>
+          <li><b>Mainboards</b>
           <ul>
-            <li style="margin-left: -15px;"><b>Actuators</b></li>
+			  <li>Orange Pi 5 Plus</li>
+			  <li><b>Raspberry Pi 5</b>
+			  <ul>
+			  <li>v2.1 Camera Module</li>
+			  <li>Waveshare USB to Audio</li>			  
+			  </ul>
+			  </li>
+	      </ul>
+          </li>
+          <li><b>Micro-controllers</b>
             <ul>
-				<li style="margin-left: -25px;">Nema 17 Stepper Motor 22mm</li>
-				<li style="margin-left: -25px;">Nema 17 Stepper Motor 34mm</li>
-				<li style="margin-left: -25px;">Nema 17 Stepper Motor 48mm</li>
-				<li style="margin-left: -25px;">MG996R Servo</li>								
-				<li style="margin-left: -25px;">MG90S Microservo</li>
-				<li style="margin-left: -25px;">SG92R Microservo</li>
-			</ul>
-            <li style="margin-left: -15px;"><b>Sensors</b></li>
+              <li>ESP32 38PIN Dev Board</li>
+              <li>ESP32 30PIN Dev Board (Recommended)</li>
+              <li>ESP32-C3 Mini</li>
+              <li>Arduino Nano (Recommended)</li>
+              <li>Arduino Mini</li>
+              <li>SN65HVD230 CAN bus transceiver</li>
+              <li>MCP2551 High speed CAN Transceiver</li>
+            </ul>
+          </li>            
+          <li><b>Drivers</b>
             <ul>
-				<li style="margin-left: -25px;">IMX219 Extended 6mmx6mm Camera</li>
-				<li style="margin-left: -25px;">Waveshare USB to AUDIO adapter</li>
-				<li style="margin-left: -25px;">3Pin Micro Limit Switch</li>
-				<li style="margin-left: -25px;">3Pin Micro Limit Switch</li>
-			</ul>
-            <li style="margin-left: -15px;"><b>Micro-controllers</b></li>
-            <ul>
-				<li style="margin-left: -25px;">ESP32 38PIN Dev Board</li>
-				<li style="margin-left: -25px;">ESP32 30PIN Dev Board (Recommended)</li>
-				<li style="margin-left: -25px;">ESP32-C3 Mini</li>
-				<li style="margin-left: -25px;">Arduino Nano (Recommended)</li>
-				<li style="margin-left: -25px;">Arduino Mini</li>
-				<li style="margin-left: -25px;">SN65HVD230 CAN bus transceiver </li>
-			    <li style="margin-left: -25px;">MCP2551 High speed CAN Transceiver</li>
-			</ul>            
-            <li style="margin-left: -15px;"><b>Drivers</b></li>
-            <ul>
-				<li style="margin-left: -25px;">DRV8825 8.2-45V Stepper Motor Driver</li>				
-				<li style="margin-left: -25px;">TMC2130 5-46V Stepper Motor Driver</li>
-				<li style="margin-left: -25px;">TMC5160HV 12-60V Stepper Motor Driver</li>
-			</ul>
-            <li style="margin-left: -15px;"><b>Power Supply</b></li>
-            <li style="margin-left: -15px;"><b>Frame</b></li>
-            <li style="margin-left: -15px;"><b>Software</b></li>
-          </ul>
-        </section>
-        
-        <!-- Assembly Instructions -->
-        <section id="assembly">
-          <h2 class="section-title">Assembly Instructions</h2>
-          <p>Detailed steps for assembling Sylvie 2024, from start to finish. This section includes diagrams and photos to guide you through the process.</p>
-          <h3 class="subsection-title">Step 1: Frame Assembly</h3>
-          <p>Description of the frame assembly process.</p>
-          <h3 class="subsection-title">Step 2: Actuator Installation</h3>
-          <p>Description of how to install actuators.</p>
-          <!-- Add more steps as needed -->
-        </section>
-        
-        <!-- Electronics -->
-        <section id="electronics">
-          <h2 class="section-title">Electronics</h2>
-          <p>Instructions for wiring and integrating electronic components.</p>
-          <h3 class="subsection-title">Wiring Diagram</h3>
-          <p>Overview of the wiring diagram for Sylvie 2024.</p>
-          <h3 class="subsection-title">Component Integration</h3>
-          <p>How to integrate sensors and controllers with the main system.</p>
-        </section>
-        
-        <!-- Programming -->
-        <section id="programming">
-          <h2 class="section-title">Programming</h2>
-          <p>Guide to programming Sylvie 2024. Includes software setup, code snippets, and debugging tips.</p>
-          <p><a href="https://git.palagov.tv/khanumballz/sylvie-2024">Source Code Here!</a></p>
-          <h3 class="subsection-title">Software Setup</h3>
-          <p>Instructions for setting up the development environment.</p>
-          <h3 class="subsection-title">Code Snippets</h3>
-          <p>Examples of code for various functionalities.</p>
-        </section>
-        
-        <!-- Troubleshooting -->
-        <section id="troubleshooting">
-          <h2 class="section-title">Troubleshooting</h2>
-          <p>Common issues and their solutions.</p>
-          <h3 class="subsection-title">Issue 1</h3>
-          <p>Description of the issue and how to resolve it.</p>
-          <!-- Add more issues as needed -->
-        </section>
-        
-        <!-- Maintenance -->
-        <section id="maintenance">
-          <h2 class="section-title">Maintenance</h2>
-          <p>Routine maintenance tasks to keep Sylvie 2024 in good working condition.</p>
-        </section>
-        
-        <!-- STL Library -->
-        <section id="stl-library">
-          <h2 class="section-title">STL Library</h2>
-          <p>This section contains links to all STL files needed for the assembly of Sylvie 2024. Click on the links below to access the files:</p>
+              <li>DRV8825 8.2-45V Stepper Motor Driver</li>				
+              <li>TMC2130 5-46V Stepper Motor Driver</li>
+              <li>TMC5160HV 12-60V Stepper Motor Driver</li>
+            </ul>
+          </li>
+<!-- Components → Power Supply -->
+<li><b>Power Supply</b>
+<ul>
+  <li><b>Multi-voltage Architecture:</b>
+    <ul>
+      <li>36V (±0.5V) LiFePO4 battery pack (10S configuration) for NEMA steppers</li>
+      <li>6V buck converter circuit (3A continuous) for servo array</li>
+      <li>5V power supply (2A) for logic boards/CAN bus</li>
+      <li>Optional 12V  power supply (3A) for cooling fans</li>
+    </ul>
+  </li>
+  <li><b>Bank Specifications:</b>
+    <ul>
+      <li>Main Pack: 36V 20Ah LiFePO4 (200+ cycles @ 80% DoD)</li>
+      <li>Backup: 36V 4Ah LiPo in parallel (emergency reserve)</li>
+    </ul>
+  </li>
+  <li><b>Safety Systems:</b>
+    <ul>
+      <li>Opto-isolated voltage domains</li>
+      <li>40A emergency relay cutoff (GSM-400A module)</li>
+      <li>Per-circuit polyfuses (steppers:5A, servos:2A, logic:1A)</li>
+      <li>Hard kill switch: IP67-rated toggle on lumbar panel</li>
+    </ul>
+  </li>
+</ul></li>
+          <li><b>Skin & Face</b>
           <ul>
-            <li><a href="../sylvie-stl">STL Files for Sylvie 2024</a></li>
+          <li>EcoFlex 00-10</li>
+          <li>MoldStar 15 SLOW</li>
+          <li>SilPoxy Adhesive</li>                    
+          <li>SilcPig Pigments</li>
+          <li>Velvet/Flocking Powder</li>
+          <li>False Lashes Top & Bottom</li>          
+          <li>Naptha/Shellite Solvent Thinner</li>
+          <li>XTC-3D Coating Resin</li>
           </ul>
-        </section>
+          </li>
+          <li><b>Frame & Body</b>
+          <ul>
+          <li>PETG 1KG (x 30)</li>
+          <li>PLA 1KG (x 10)</li>
+          <li><b>Machine Screws</b>
+          <ul>
+          <li>M2 6mm Screws & Nuts</li>
+          <li>M2 10mm Screws & Nuts</li>
+          <li>M2.5 6mm Screws & Nuts</li>
+          <li>M2.5 10mm Screws & Nuts</li>
+          <li>M3 6mm Screws & Nuts</li>
+          <li>M3 10mm Screws & Nuts</li>
+          <li>M3 12mm Screws & Nuts</li>
+          <li>M3 15mm Screws & Nuts</li>
+          <li>M3 20mm Screws & Nuts</li>
+          <li>M3 25mm Screws & Nuts</li>
+          <li>M3 32mm Screws & Nuts</li>
+          <li>M3 50mm Screws & Nuts</li>
+          <li>M4 25mm Screws & Nuts</li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+          <li><b>Software</b>
+          <ul>
+          <li>Blender 2.79b+</li>
+          <li>Arduino IDE 2.2.1+</li>
+          <li>Ultimaker Cura 4.13.0+</li>
+          <li>Ubuntu Linux 22.04+</li>
+          <li>Raspberry Pi OS</li>
+          <li>Ollama 0.5.7+</li>
+          <li>Python 3.11+</li>
+          </ul>
+          </li>
+        </ul>
+      </section>
+      
+      <!-- Assembly Instructions -->
+      <section id="assembly">
+        <h2 class="section-title">Assembly Instructions</h2>
+        <p>Detailed steps for assembling Sylvie 2024, from start to finish. This section includes diagrams and photos to guide you through the process.</p>
         
-        <!-- Appendices -->
-        <section id="appendices">
-          <h2 class="section-title">Appendices</h2>
-          <p>Additional resources, references, and documentation.</p>
-        </section>
+<!-- Assembly Instructions → Frame Assembly -->
+<h3 class="subsection-title">Step 1: Frame Assembly</h3>
+<div class="assembly-details">
+  <h4>Materials & Tools Required:</h4>
+  <ul>
+    <li>PETG structural prints (0.25, 0.3, 0.4mm layer, 7-30% gyroid infill)</li>
+    <li>M3 threaded brass inserts (5mm outer diameter)</li>
+    <li>Cyanoacrylate gel (LOCTITE 454 with primer)</li>
+    <li>3D-printed alignment jigs (included in STL library)</li>
+    <li>120-grit sandpaper for surface prep</li>
+  </ul>
+
+  <h4>Assembly Process:</h4>
+  <ol>
+    <li><b>Surface Preparation:</b>
+      <ul>
+        <li>Lightly sand mating surfaces with 120-grit</li>
+        <li>Apply methyl ethyl ketone (MEK) primer with brush</li>
+        <li>Let dry 90 seconds until tacky</li>
+      </ul>
+    </li>
+    
+    <li><b>Interlock Assembly:</b>
+      <ul>
+        <li>Engage jigsaw puzzle connectors at 45° angle</li>
+        <li>Apply firm pressure until 'click' heard</li>
+        <li>Verify 0.5mm gap remains for adhesive flow</li>
+      </ul>
+    </li>
+
+    <li><b>Bonding Procedure:</b>
+      <ul>
+        <li>Inject CA gel along seam capillary path</li>
+        <li>Quick-set with accelerator spray (30sec cure)</li>
+        <li>Wipe excess with acetone-damp cloth</li>
+      </ul>
+    </li>
+
+    <li><b>Insert Installation:</b>
+      <ul>
+        <li>Heat soldering iron to 220°C</li>
+        <li>Press inserts into marked cavities</li>
+        <li>Cool under compression for 2 minutes</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h4>Safety Notes:</h4>
+  <ul>
+    <li>⚠️ Perform in well-ventilated area (CA fumes)</li>
+    <li>⚠️ Wear nitrile gloves (MEK penetrates latex)</li>
+    <li>🔍 Check alignment with laser crosshair tool</li>
+  </ul>
+
+  <h4>Design Philosophy:</h4>
+  <p>This solvent-welded monocoque approach achieves:</p>
+  <ul>
+    <li>➰ Continuous load paths without fastener stress points</li>
+    <li>📐 0.1mm assembly precision through interlocking features</li>
+    <li>⚖️ 60% weight reduction vs. traditional frame methods</li>
+    <li>🔧 Service ports allow insert replacement</li>
+  </ul>
+</div>
+ <!-- Assembly Instructions → Actuator Installation -->
+<h3 class="subsection-title">Step 2: Actuator Installation</h3>
+<div class="assembly-details">
+  <h4>Gearbox Specifications:</h4>
+  <ul>
+    <li><b>Size C (Legs/Waist):</b>
+      <ul>
+        <li>Dual-stage 53.6:1 reduction</li>
+        <li>12T input → 24T bevel → 72T planetary</li>
+        <li>Max continuous torque: 48Nm @ 36V</li>
+        <li>Weight: 820g (including housing)</li>
+      </ul>
+    </li>
+    <li><b>Size B (Upper Arms):</b>
+      <ul>
+        <li>Single-stage 19:1 reduction</li>
+        <li>12T helical → 36T planetary</li>
+        <li>Peak torque: 22Nm @ 36V</li>
+        <li>Weight: 410g</li>
+      </ul>
+    </li>
+    <li><b>Size A (Wrists/Fingers):</b>
+      <ul>
+        <li>Micro planetary 4.3:1 reduction</li>
+        <li>10T spiral → 18T carrier</li>
+        <li>Precision: 0.05° repeatability</li>
+        <li>Weight: 180g</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>Installation Process:</h4>
+  <ol>
+    <li><b>Pre-alignment:</b>
+      <ul>
+        <li>Mount NEMA 17 motor to gearbox input using:
+          <ul>
+            <li>M3×10mm SHCS (4x)</li>
+            <li>24N·cm torque pattern</li>
+          </ul>
+        </li>
+        <li>Apply molybdenum disulfide grease to input shaft (if metal)</li>
+        <li>Apply PTFE grease to input shaft and planetary gears (if plastic)</li>
+      </ul>
+    </li>
+    
+    <li><b>Frame Integration:</b>
+      <ul>
+        <li>Screw gearbox into PETG joints</li>
+        <li>Secure with 4x M3 machine screws</li>
+      </ul>
+    </li>
+
+    <li><b>Backlash Compensation:</b>
+      <ul>
+        <li>Tweak the horizontal expansion of 3d-printed gears</li>
+        <li>Keep ring gears as skinny and flexible as possible</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h4>Critical Torque Specifications:</h4>
+  <table>
+    <tr><th>Component</th><th>Fastener</th><th>Torque</th></tr>
+    <tr><td>Gearbox to Frame</td><td>M4×12</td><td>2.5N·m ±0.2</td></tr>
+    <tr><td>Motor to Gearbox</td><td>M3×8</td><td>0.8N·m (7in-lb)</td></tr>
+    <tr><td>Output Flange</td><td>M6×1</td><td>10N·m + Loctite 263</td></tr>
+  </table>
+
+  <h4>Lubrication Schedule:</h4>
+  <ul>
+    <li>Initial: Kluber Staburags NBU 12 (5ml per gearbox)</li>
+    <li>Maintenance: 6-month intervals with synthetic PTFE grease</li>
+    <li>⚠️ Never use lithium-based grease with PETG</li>
+  </ul>
+
+  <h4>Design Philosophy:</h4>
+  <p>This staggered gearbox approach enables:</p>
+  <ul>
+    <li>🦵 Size C: High inertia handling for locomotion</li>
+    <li>💪 Size B: Optimal strength/weight for manipulation</li>
+    <li>✋ Size A: Precision-over-power for dexterous tasks</li>
+    <li>🔁 Standardized mounting pattern across sizes</li>
+  </ul>
+</div>       
+      </section>
+      
+      <!-- Electronics -->
+<!-- Electronics Section -->
+<section id="electronics">
+  <h2 class="section-title">Electronics</h2>
+  
+  <h3 class="subsection-title">Network Topology</h3>
+  <div class="wiring-architecture">
+    <h4>Distributed Control System:</h4>
+    <ul>
+      <li><b>Central Brain:</b> Raspberry Pi 5 (8GB) running Python modules
+        <ul>
+          <li>Manages high-level planning/vision via IMX219 cameras</li>
+          <li>Hosts SQLite database for behavioral patterns</li>
+        </ul>
+      </li>
+      
+      <li><b>CAN Bus Network:</b> 500kbps FD-CAN backbone
+        <ul>
+          <li>ESP32 nodes with SN65HVD230 transceivers</li>
+          <li>Each node controls 3× TMC5160HV stepper drivers</li>
+          <li>Arbitration ID scheme: [Priority][NodeID][Motor#]</li>
+        </ul>
+      </li>
+
+      <li><b>Animatronic Subsystem:</b> I²C multiplexed network
+        <ul>
+          <li>Adafruit PCA9685 (6x) @ 0x40-0x45</li>
+          <li>SG92R servos (24DOF facial control)</li>
+          <li>400kHz clock with 2ms refresh rate</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Wiring Diagram</h3>
+  <div class="wiring-specs overflow-section">
+    <h4>CAN Bus Implementation:</h4>
+    <pre>
+    ┌────────────┐   ┌────────────┐   ┌────────────┐
+    │ ESP32 Node │◄──┤ 120Ω CAN   ├──►│ ESP32 Node │
+    │ (Left Leg) │   │ Terminator │   │ (Right Leg)│
+    └─────┬──────┘   └────────────┘   └─────┬──────┘
+          │ CAN_H/CAN_L                     │
+          ▼                                 ▼
+    ┌───────────────────────────────────────────────┐
+    │            4-conductor shielded cable         │
+    │          (24AWG, 100% coverage)               │
+    └───────────────────────────────────────────────┘
+          ▲
+          │
+    ┌─────┴──────┐
+    │ Raspberry  │
+    │ Pi 5       │
+    │ (CAN0)     │
+    └────────────┘
+    </pre>
+
+    <h4>Critical Connections Table:</h4>
+    <table>
+      <tr><th>Component</th><th>Interface</th><th>Pinout</th><th>Notes</th></tr>
+      <tr><td>SN65HVD230</td><td>ESP32-CAN</td><td>TX->RX, RX->TX</td><td>3.3V logic level</td></tr>
+      <tr><td>TMC5160HV</td><td>SPI</td><td>SCK/MISO/MOSI</td><td>10MHz clock</td></tr>
+      <tr><td>PCA9685</td><td>I²C</td><td>SDA1/SCL1</td><td>4.7kΩ pullups</td></tr>
+      <tr><td>Emergency Cutoff</td><td>GPIO25</td><td>Active-low</td><td>Optoisolated</td></tr>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Power Distribution</h3>
+  <div class="power-specs">
+    <ul>
+      <li><b>36V Domain:</b>
+        <ul>
+          <li>Main bus: 8AWG silicone cables</li>
+          <li>Per-node polyfuses: 5A fast-blow</li>
+        </ul>
+      </li>
+      <li><b>6V Servo Rail:</b>
+        <ul>
+          <li>LM2596 buck converter (5A)</li>
+          <li>1000μF low-ESR capacitor bank</li>
+        </ul>
+      </li>
+      <li><b>5V Logic:</b>
+        <ul>
+          <li>TPS7A4700 LDO (2A)</li>
+          <li>Star topology grounding</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Safety Systems</h3>
+  <div class="safety-specs">
+    <ul>
+      <li>GSM-400A cutoff relay (normally closed)</li>
+      <li>Dual-channel watchdog timer (ESP32 ↔ Pi)</li>
+      <li>Self-test diagnostics on power-up:
+        <ul>
+          <li>Bus capacitance check</li>
+          <li>Servo current leakage test</li>
+          <li>CAN packet CRC validation</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Diagnostic LEDs</h3>
+  <div class="led-specs">
+    <ul>
+      <li>CAN Activity: Yellow (1Hz blink = healthy)</li>
+      <li>Motor Fault: Red (error codes via blink pattern)</li>
+      <li>Power Status: Green (solid = 36V OK)</li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Software Stack</h3>
+  <div class="software-specs">
+    <ul>
+      <li>ROS 2 Control (RPi 5)</li>
+      <li>ESP32: PlatformIO firmware (C++)</li>
+      <li>CANopen protocol for motor control</li>
+      <li>Python I²C library for facial animations</li>
+    </ul>
+    <p><b>Note:</b> Full configuration files available in <a href="https://git.palagov.tv/khanumballz/sylvie-2024/tree/main/firmware">Git repository</a></p>
+  </div>
+</section>
+      
+      <!-- Programming -->
+      <section id="programming">
+        <h2 class="section-title">Programming</h2>
+        <p>Guide to programming Sylvie 2024. Includes software setup, code snippets, and debugging tips.</p>
         
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </div>
-      </div>
-    </main>
-    <script>
-      var mainElement = document.querySelector('main');
-      mainElement.classList.add('fade-in');
-    </script>
-    <script src="/java/main.js?v=13.84"></script>
-  </body>
+<!-- Programming Section -->
+<section id="programming">
+  <h2 class="section-title">Programming</h2>
+  
+  <div class="current-implementation">
+    <h3 class="subsection-title">Core Control Stack (v0.1)</h3>
+    <ul>
+      <li><b>Language:</b> Python 3.11 (CPython)</li>
+      <li><b>Dependencies:</b>
+        <ul>
+          <li>python-can (4.3.0)</li>
+          <li>smbus2 (0.4.2)</li>
+          <li>RPi.GPIO (0.7.1)</li>
+          <li>numpy (1.26.4)</li>
+        </ul>
+      </li>
+      <li><b>Architecture:</b>
+        <ul>
+          <li>Main thread: Motion planner</li>
+          <li>CAN bus handler: Dedicated process</li>
+          <li>Facial animation: Async coroutine</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Basic Code Structure Example:</h4>
+    <pre><code class="language-python"># CAN Bus Initialization
+import can
+bus = can.interface.Bus(
+    interface='socketcan',
+    channel='can0',
+    bitrate=500000
+)
+
+# Stepper Control Protocol
+def send_step_cmd(node_id, steps, microsteps=16):
+    msg = can.Message(
+        arbitration_id=0x200 + node_id,
+        data=steps.to_bytes(4, 'little') + microsteps.to_bytes(1, 'big'),
+        is_extended_id=False
+    )
+    try:
+        bus.send(msg)
+    except can.CanError:
+        print("CAN bus transmission failed")
+
+# Servo Control Example
+from smbus2 import SMBus
+bus_i2c = SMBus(1) # Raspberry Pi I2C-1
+
+def set_servo_angle(channel, angle):
+    pulse = int(angle * (2000 / 180) + 500)
+    bus_i2c.write_byte_data(0x40, 0x06 + 4*channel, pulse & 0xFF)
+    bus_i2c.write_byte_data(0x40, 0x07 + 4*channel, pulse >> 8)
+
+# Main Control Loop
+while True:
+    process_sensor_data()
+    update_kinematic_model()
+    execute_movement_sequence()</code></pre>
+
+    <h3 class="subsection-title">Key Features</h3>
+    <ul>
+      <li>Direct register manipulation for PCA9685</li>
+      <li>Bit-banged CAN protocol decoding</li>
+      <li>Non-blocking I/O via asyncio</li>
+      <li>CSV-based motion capture playback</li>
+    </ul>
+
+    <h3 class="subsection-title">Error Handling</h3>
+    <pre><code class="language-python">class SylvieError(Exception):
+    """Base exception class"""
+    
+class MotorFault(SylvieError):
+    def __init__(self, node_id, error_code):
+        self.message = f"Node {node_id} fault: {error_code:x}"
+        super().__init__(self.message)
+
+def check_errors():
+    while True:
+        msg = bus.recv(0.1)
+        if msg and msg.arbitration_id & 0x100:
+            raise MotorFault(msg.arbitration_id & 0xFF, msg.data[0])</code></pre>
+  </div>
+
+  <div class="future-roadmap">
+    <h3 class="subsection-title">Planned Features</h3>
+    <ul>
+      <li>🦾 Inverse kinematics solver</li>
+      <li>👁️ OpenCV integration for IMX219 cameras</li>
+      <li>🗣️ CMU Sphinx speech recognition</li>
+      <li>🧠 PyTorch-based behavior engine</li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Troubleshooting</h3>
+  <table>
+    <tr><th>Symptom</th><th>Check</th><th>Solution</th></tr>
+    <tr><td>Jittery servos</td><td>Power supply ripple</td><td>Add 1000μF cap to 6V line</td></tr>
+    <tr><td>CAN timeouts</td><td>Termination resistors</td><td>Verify 120Ω between CAN_H/CAN_L</td></tr>
+    <tr><td>I²C failures</td><td>Address conflicts</td><td>Scan bus with i2cdetect</td></tr>
+  </table>
+
+  <p><b>Full source code:</b> <a href="https://git.palagov.tv/khanumballz/sylvie-2024">Project Repository</a></p>
+</section>
+        
+      </section>
+      
+      <!-- Troubleshooting -->
+<!-- Troubleshooting Section -->
+<section id="troubleshooting">
+  <h2 class="section-title">Troubleshooting</h2>
+
+  <div class="failure-modes  overflow-section">
+    <h3 class="subsection-title">Critical Failure Matrix</h3>
+    <table>
+      <tr><th>Symptom</th><th>Likely Cause</th><th>Immediate Action</th><th>Long-Term Fix</th></tr>
+      <tr><td>Layer separation in frame</td><td>Insufficient layer adhesion</td><td>Apply epoxy resin to crack</td><td>Print with 0.6mm nozzle @ 0.3mm layers</td></tr>
+      <tr><td>Hand servo jitter</td><td>Low-quality servo/PWM noise</td><td>Reduce PWM frequency to 50Hz</td><td>Install KST X12-508 servos</td></tr>
+      <tr><td>False homing</td><td>Limit switch bounce</td><td>Clean switch contacts</td><td>Add 0.1μF capacitor across switch</td></tr>
+      <tr><td>Sensorless homing overshoot</td><td>Insufficient stall sensitivity</td><td>Manual position reset</td><td>Re-tune TMC with <code>SG_RESULT</code></td></tr>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Layer Separation Protocol</h3>
+  <div class="layer-separation">
+    <h4>Printing Rules:</h4>
+    <ul>
+      <li><b>Structural Parts:</b>
+        <ul>
+          <li>0.6mm nozzle mandatory</li>
+          <li>0.3mm layer height</li>
+          <li>245°C hotend / 85°C bed</li>
+        </ul>
+      </li>
+      <li><b>Precision Gears:</b>
+        <ul>
+          <li>0.4mm nozzle only</li>
+          <li>0.12mm layers</li>
+          <li>100% infill</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <h4>Emergency Repair:</h4>
+    <pre>
+1. Drill 1.5mm holes along crack
+2. Inject PETG slurry (scraps + acetone)
+3. Clamp for 2hrs
+4. Reinforce with fiberglass tape
+    </pre>
+  </div>
+
+  <h3 class="subsection-title">CAN Bus Best Practices</h3>
+  <div class="can-protocol">
+    <ul>
+      <li><b>Node Addressing:</b>
+        <ul>
+          <li>Legs: 0x10-0x13</li>
+          <li>Arms: 0x20-0x23</li>
+          <li>Waist: 0x30</li>
+        </ul>
+      </li>
+      <li><b>Termination:</b>
+        <ul>
+          <li>120Ω at each bus end</li>
+          <li>Shield grounded at one point</li>
+        </ul>
+      </li>
+      <li><b>Diagnostics:</b>
+        <pre>sudo ip -details -statistics link show can0</pre>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Sensorless Homing Tuning</h3>
+  <div class="sensorless-config">
+    <h4>TMC5160 Settings:</h4>
+    <pre>
+// marlin_override.h
+#define SENSORLESS_HOMING
+#define X_STALL_SENSITIVITY  75
+#define Y_STALL_SENSITIVITY  80
+#define Z_STALL_SENSITIVITY  50</pre>
+
+    <h4>Calibration Process:</h4>
+    <ol>
+      <li>Home axis slowly (5mm/s)</li>
+      <li>Check actual vs expected position</li>
+      <li>Adjust sensitivity in 5-unit increments</li>
+      <li>Validate with 10kg load</li>
+    </ol>
+  </div>
+
+  <h3 class="subsection-title">Servo Hierarchy</h3>
+  <div class="servo-priority">
+    <ul>
+      <li><b>Tier 1 (Hands):</b>
+        <ul>
+          <li>KST X12-508 (0.06s/60°)</li>
+          <li>Dedicated 6V supply</li>
+          <li>Optical encoder feedback</li>
+        </ul>
+      </li>
+      <li><b>Tier 2 (Face):</b>
+        <ul>
+          <li>MG90S (plastic gears)</li>
+          <li>Shared power bus</li>
+          <li>3-month replacement cycle</li>
+        </ul>
+      </li>
+    </ul>
+    <p><i>Pro Tip:</i> Dip Tier 2 servos in conformal coating to reduce eyebrow sweat damage</p>
+  </div>
+</section>
+      
+      <!-- Maintenance -->
+<!-- Maintenance Section -->
+<section id="maintenance">
+  <h2 class="section-title">Maintenance</h2>
+  
+  <div class="preventative-care  overflow-section">
+    <h3 class="subsection-title">Scheduled Maintenance</h3>
+    <table>
+      <tr><th>Component</th><th>Interval</th><th>Action</th><th>Tooling</th></tr>
+      <tr><td>PLA Gears</td><td>200hrs</td><td>Full replacement</td><td>Needle-nose pliers, M2.5 hex</td></tr>
+      <tr><td>PETG Joints</td><td>200hrs</td><td>Inspect for cracks</td><td>Magnifying glass, calipers</td></tr>
+      <tr><td>SG92R Servos</td><td>-</td><td>Replace on failure</td><td>Spudger, 1.5mm screwdriver</td></tr>
+      <tr><td>Lubrication</td><td>50hrs</td><td>Re-grease gears</td><td>Syringe, PTFE grease</td></tr>
+    </table>
+  </div>
+
+  <h3 class="subsection-title">Face Plate Servo Replacement</h3>
+  <div class="servo-replacement">
+    <h4>Tools Required:</h4>
+    <ul>
+      <li>Silicone-safe pry tool (included in kit)</li>
+      <li>JST-PH 2.0 extraction tweezers</li>
+      <li>Replacement SG92R (pre-calibrated)</li>
+    </ul>
+
+    <h4>Procedure:</h4>
+    <ol>
+      <li><b>Face Removal:</b>
+        <ul>
+          <li>Press hidden release tabs at temples (↖↙)</li>
+          <li>Gently peel from forehead downward</li>
+          <li>Disconnect 24-pin FPC cable (45° pull)</li>
+        </ul>
+      </li>
+      
+      <li><b>Servo Access:</b>
+        <ul>
+          <li>Remove 4× M1.6 screws per failed unit</li>
+          <li>Extract servo with vacuum suction cup</li>
+          <li>Depress JST connector latch to disconnect</li>
+        </ul>
+      </li>
+
+      <li><b>Calibration:</b>
+        <ul>
+          <li>Install new servo in neutral position (90°)</li>
+          <li>Run <code>calibrate_facial.py --eye-left</code></li>
+          <li>Verify 32°±2° range of motion</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h4>Design Features:</h4>
+    <ul>
+      <li>🧼 Silicone face uses SilPoxy for rigging to 3D-printed skull</li>
+      <li>🔧 Servo mounts have breakaway tabs for quick removal</li>
+      <li>🔌 Self-aligning connectors prevent miswiring</li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Gearbox Rebuilding</h3>
+  <div class="gearbox-maintenance">
+    <h4>Signs of Wear:</h4>
+    <ul>
+      <li>🦷 Teeth fragments in grease</li>
+      <li>📈 Current draw increase >15%</li>
+      <li>🎚️ Positional drift >5°</li>
+    </ul>
+
+    <h4>Replacement Kit:</h4>
+    <ul>
+      <li>Pre-packed gear sets (A/B/C sizes)</li>
+      <li>Color-coded shim packs (0.1-0.5mm)</li>
+      <li>Torx T5 security screwdriver</li>
+    </ul>
+
+    <h4>Rebuild Process:</h4>
+    <ol>
+      <li>Flush old grease with isopropyl alcohol</li>
+      <li>Install new sun/planet gears with alignment jig</li>
+      <li>Shim output shaft to 0.2mm endplay</li>
+      <li>Test unloaded rotation torque <0.5Nm</li>
+    </ol>
+  </div>
+
+  <h3 class="subsection-title">Lubrication Guide</h3>
+  <div class="lubrication">
+    <ul>
+      <li><b>Gears:</b> Super Lube 21030 (synthetic)</li>
+      <li><b>Bushings:</b> Molykote EM-30L (dry film)</li>
+      <li><b>Face Rails:</b> Shin-Etsu G501 (silicone)</li>
+      <li><b>⚠️ Avoid:</b> Lithium grease, WD-40</li>
+    </ul>
+    <p><i>Grease quantity:</i> Fill 30% of gear volume</p>
+  </div>
+
+  <h3 class="subsection-title">3D Printing Tips</h3>
+  <div class="printing-tips">
+    <ul>
+      <li><b>Gears:</b>
+        <ul>
+          <li>0.12mm layer height</li>
+          <li>100% infill</li>
+          <li>Annealed at 70°C for 2hrs</li>
+        </ul>
+      </li>
+      <li><b>Structural Parts:</b>
+        <ul>
+          <li>0.2mm layers</li>
+          <li>6 perimeters</li>
+          <li>Cyanoacrylate vapor smoothing</li>
+        </ul>
+      </li>
+    </ul>
+    <p><a href="#stl-library">Download latest STLs with wear indicators</a></p>
+  </div>
+</section>
+      
+      <!-- STL Library -->
+      <section id="stl-library">
+        <h2 class="section-title">STL Library</h2>
+        <p>This section contains links to all STL files needed for the assembly of Sylvie 2024.</p>
+<!-- STL Library Section -->
+
+          <p><b>All Files:</b><a href="../sylvie-stl"> STL Files for Sylvie 2024</a></p>
+
+  <div class="design-philosophy">
+    <h3 class="subsection-title">Modular Architecture</h3>
+    <ul>
+      <li>🔩 <b>Standardized Interfaces:</b>
+        <ul>
+          <li>All joints use 35×35mm mounting pattern</li>
+          <li>Universal M3 insert cavities (5.2mm Ø)</li>
+          <li>Keyed connectors prevent misassembly</li>
+        </ul>
+      </li>
+      <li>🧩 <b>Service-Friendly Design:</b>
+        <ul>
+          <li>Split-plane topology for partial replacements</li>
+          <li>Sacrificial shear ribs on high-stress parts</li>
+          <li>Color-coded alignment markers</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">File Organization</h3>
+  <div class="overflow-section">
+  <table>
+    <tr><th>Category</th><th>Subfolder</th><th>Critical Parts</th><th>Version</th></tr>
+    <tr><td>Gearboxes</td><td>/GearboxesABC-Sylvie2023</td><td>Size A,B,C Planetary Set</td><td>v3.0.0</td></tr>
+    <tr><td>Upper Body</td><td>/UpperBodyFiles</td><td>Torso, Shoulders, etc.</td><td>v3.0.0</td></tr>
+    <tr><td>Lower Body</td><td>/LowerBodyFiles</td><td>Hips, Legs, etc.</td><td>v3.0.0</td></tr>
+    <tr><td>Silicone Molding</td><td>/SiliconeFaceFiles</td><td>Insert Jig, Laser Alignment</td><td>v5.0.0</td></tr>
+  </table>
+  </div>
+
+  <h3 class="subsection-title">Printing Guidelines</h3>
+  <div class="printing-specs">
+    <h4>Orientation & Supports</h4>
+    <ul>
+      <li><b>Gears:</b> 
+        <ul>
+          <li>Vertical orientation (Z-axis)</li>
+          <li>Raft required (0.3mm airgap)</li>
+          <li>0% infill until final 5 layers</li>
+        </ul>
+      </li>
+      <li><b>Structural Members:</b>
+        <ul>
+          <li>Lay flat on strongest axis</li>
+          <li>Tree supports (45° angle)</li>
+          <li>Brim width = 8mm</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Tolerance Compensation</h4>
+    <pre>
+    Material       XY Compensation   Hole Scaling
+    PETG           +0.1mm           +0.15mm
+    ABS            +0.05mm          +0.1mm
+    Resin          -0.05mm          -0.02mm
+    </pre>
+  </div>
+
+  <h3 class="subsection-title">Version Control</h3>
+  <div class="versioning">
+    <ul>
+      <li><b>Semantic Versioning:</b> Major.Minor.Patch
+        <ul>
+          <li>Major: Breaking interface changes</li>
+          <li>Minor: Dimensional adjustments</li>
+          <li>Patch: Surface finish fixes</li>
+        </ul>
+      </li>
+      <li><b>Changelog:</b> 
+        <a href="https://git.palagov.tv/khanumballz/sylvie-2024/src/branch/main/CHANGELOG.stl">STL Revision History</a>
+      </li>
+    </ul>
+
+    <h4>Critical Updates</h4>
+    <div class="changelog-excerpt">
+      <code>
+        2024-06-15 v2.1.7<br>
+        - Increased gear tooth root radius by 0.2mm<br>
+        - Added stress relief grooves to Size C carrier<br>
+        - NEW test print: torque_validation_2.1.stl
+      </code>
+    </div>
+  </div>
+
+  <h3 class="subsection-title">Validation Prints</h3>
+  <div class="testing">
+    <ul>
+      <li><b>Fit Check:</b>
+        <ul>
+          <li>m3_insert_test.stl (5.1-5.3mm holes)</li>
+          <li>servo_playground.stl (11.8mm cavities)</li>
+        </ul>
+      </li>
+      <li><b>Material Tests:</b>
+        <ul>
+          <li>tensile_validation_x40.stl</li>
+          <li>layer_adhesion.stl</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3 class="subsection-title">Post-Processing</h3>
+  <div class="post-processing">
+    <ol>
+      <li><b>Vapor Smoothing:</b>
+        <ul>
+          <li>PETG: Ethyl acetate 60s exposure</li>
+          <li>ABS: Acetone vapor 3min cycle</li>
+        </ul>
+      </li>
+      <li><b>Stress Relieving:</b>
+        <ul>
+          <li>Oven anneal at 80°C for 2hrs</li>
+          <li>Cooling rate: 1°C/min</li>
+        </ul>
+      </li>
+      <li><b>Surface Prep:</b>
+        <ul>
+          <li>Glass bead blast (120 grit)</li>
+          <li>Wash in 99% isopropyl alcohol</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <h3 class="subsection-title">Legacy Parts</h3>
+  <div class="legacy">
+    <ul>
+      <li><b>Deprecated:</b> /archive/pre-2023</li>
+      <li><b>Known Issues:</b>
+        <ul>
+          <li>v1.0 hip joints (stress fractures)</li>
+          <li>v0.5 finger assemblies (stiction)</li>
+        </ul>
+      </li>
+    </ul>
+    <p>⚠️ Always check <a href="#maintenance">Maintenance Section</a> before printing legacy components</p>
+  </div>
+       
+        
+        <!-- [Include all STL library subsections here] -->
+        
+      </section>
+      
+      <!-- Appendices -->
+      <section id="appendices">
+        <h2 class="section-title">Appendices</h2>
+        <p>Additional resources, references, and documentation.</p>
+      </section>
+    </div>
+  </main>
+  <script>
+    var mainElement = document.querySelector('main');
+    mainElement.classList.add('fade-in');
+  </script>
+  <script src="/java/main.js?v=14.08"></script>
+</body>
 </html>
