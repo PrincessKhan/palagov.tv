@@ -43,7 +43,7 @@
            background-color:rgba(143,188,143,0.3);
            padding:6px;
            border-left:3px solid #8FBC8F;">
-  <i>Modified: March 1, 2025 | 6:35p.m.</i>
+  <i>Modified: March 1, 2025 | 7:41p.m.</i>
 </p>
 
 <!-- Warning Alert - Urgent but Readable -->
@@ -550,41 +550,107 @@
     </ul>
 
     <h4>Basic Code Structure Example:</h4>
-    <pre><code class="language-python"># CAN Bus Initialization
-import can
-bus = can.interface.Bus(
-    interface='socketcan',
-    channel='can0',
-    bitrate=500000
-)
+    <pre><code class="language-python">#include <CAN.h>
 
-# Stepper Control Protocol
-def send_step_cmd(node_id, steps, microsteps=16):
-    msg = can.Message(
-        arbitration_id=0x200 + node_id,
-        data=steps.to_bytes(4, 'little') + microsteps.to_bytes(1, 'big'),
-        is_extended_id=False
-    )
-    try:
-        bus.send(msg)
-    except can.CanError:
-        print("CAN bus transmission failed")
+const int CAN_TX_PIN = 4; // Any GPIO pin for CAN TX
+const int CAN_RX_PIN = 5; // Any GPIO pin for CAN RX
+const int CAN_SPEED = 500E3; // Baud rate for CAN bus communication
 
-# Servo Control Example
-from smbus2 import SMBus
-bus_i2c = SMBus(1) # Raspberry Pi I2C-1
+void setup() {
+  Serial.begin(115200);
 
-def set_servo_angle(channel, angle):
-    pulse = int(angle * (2000 / 180) + 500)
-    bus_i2c.write_byte_data(0x40, 0x06 + 4*channel, pulse & 0xFF)
-    bus_i2c.write_byte_data(0x40, 0x07 + 4*channel, pulse >> 8)
+  CAN.setPins(CAN_RX_PIN, CAN_TX_PIN);
+  
+  // Initialize CAN bus at 500 kbps
+  if (!CAN.begin(CAN_SPEED)) {
+    Serial.println("Failed to initialize CAN bus!");
+    while (1); // Halt if initialization fails
+  }
+}
 
-# Main Control Loop
+void loop() {
+  if (Serial.available() > 0) {
+    String input = Serial.readStringUntil('\n');
+    // Print the command to serial monitor
+    Serial.print("Sending command: ");
+    Serial.println(input);
+    // Convert string to byte array
+    uint8_t message[input.length()];
+    input.getBytes(message, input.length() + 1);
+    // Send the message over CAN bus
+    CAN.beginPacket(0x123); // Assuming 0x123 is the ID for user commands
+    CAN.write(message, input.length());
+    CAN.endPacket();
+  }
+}
+</code></pre>
+
+    <pre><code class="language-python">#include <CAN.h>
+
+const int CAN_TX_PIN = 4; // Any GPIO pin for CAN TX
+const int CAN_RX_PIN = 15; // Any GPIO pin for CAN RX
+const int BEEP_PIN = 16;    // Digital pin for triggering the beeping device
+const int CAN_SPEED = 500E3; // Baud rate for CAN bus communication
+
+char receivedMessage[64]; // Char array to store the received message
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(BEEP_PIN, OUTPUT);
+  
+  CAN.setPins(CAN_RX_PIN, CAN_TX_PIN);
+  
+  // Initialize CAN bus at 500 kbps
+  // Initialize CAN bus at specified baud rate
+  if (!CAN.begin(CAN_SPEED)) {
+    Serial.println("Failed to initialize CAN bus!");
+    while (1); // Halt if initialization fails
+  }
+}
+
+void loop() {
+  // Check if there's a message received
+  if (CAN.parsePacket() > 0) {
+    // Read the message into the char array
+    int messageLength = 0;
+    while (CAN.available() && messageLength < sizeof(receivedMessage)) {
+      receivedMessage[messageLength++] = CAN.read();
+    }
+    // Null-terminate the char array
+    receivedMessage[messageLength] = '\0';
+    Serial.println("Received message: " + String(receivedMessage));
+
+    // Check if the received message is "BEEP"
+    if (strcmp(receivedMessage, "BEEP") == 0) {
+      // Trigger the beeping device
+      digitalWrite(BEEP_PIN, HIGH);
+      delay(1000); // Adjust as needed
+      digitalWrite(BEEP_PIN, LOW);
+    }
+  }
+}
+</code></pre>
+
+<pre><code class="language-python">
+from time import sleep
+from serial import Serial
+
+import serial
+import keyboard
+import os
+import sys
+
+ser = serial.Serial('/dev/ttyUSB0', 9600) # Establish the connection on a specific port
+
 while True:
-    process_sensor_data()
-    update_kinematic_model()
-    execute_movement_sequence()</code></pre>
+    print("Welcome to SylvieOS 2020!")
+    keyboardInput = str(input("Please enter an angle for the gearbox to move to: "))
 
+    if keyboardInput == "exit":
+        exit()
+    else:                                     
+        ser.write(keyboardInput.encode())	
+</code></pre>
     <h3 class="subsection-title">Key Features</h3>
     <ul>
       <li>Direct register manipulation for PCA9685</li>
@@ -593,7 +659,7 @@ while True:
       <li>CSV-based motion capture playback</li>
     </ul>
 
-    <h3 class="subsection-title">Error Handling</h3>
+<!--    <h3 class="subsection-title">Error Handling</h3>
     <pre><code class="language-python">class SylvieError(Exception):
     """Base exception class"""
     
@@ -607,7 +673,7 @@ def check_errors():
         msg = bus.recv(0.1)
         if msg and msg.arbitration_id & 0x100:
             raise MotorFault(msg.arbitration_id & 0xFF, msg.data[0])</code></pre>
-  </div>
+  </div>-->
 
   <div class="future-roadmap">
     <h3 class="subsection-title">Planned Features</h3>
@@ -671,9 +737,9 @@ def check_errors():
     <h4>Emergency Repair:</h4>
     <pre>
 1. Drill 1.5mm holes along crack
-2. Inject PETG slurry (scraps + acetone)
-3. Clamp for 2hrs
-4. Reinforce with fiberglass tape
+2. Prime, Inject CA glue. 
+3. Sprinkle banking soda
+4. Clamp for 2hrs
     </pre>
   </div>
 
@@ -723,14 +789,13 @@ def check_errors():
     <ul>
       <li><b>Tier 1 (Hands):</b>
         <ul>
-          <li>KST X12-508 (0.06s/60°)</li>
+          <li>SG92R (nylon/carbon gears)</li>
           <li>Dedicated 6V supply</li>
-          <li>Optical encoder feedback</li>
         </ul>
       </li>
       <li><b>Tier 2 (Face):</b>
         <ul>
-          <li>MG90S (plastic gears)</li>
+          <li>SG92R (nylon/carbon gears)</li>
           <li>Shared power bus</li>
           <li>3-month replacement cycle</li>
         </ul>
@@ -760,7 +825,7 @@ def check_errors():
   <div class="servo-replacement">
     <h4>Tools Required:</h4>
     <ul>
-      <li>Silicone-safe pry tool (included in kit)</li>
+      <li>Small Phillips Screw drivers</li>
       <li>JST-PH 2.0 extraction tweezers</li>
       <li>Replacement SG92R (pre-calibrated)</li>
     </ul>
@@ -769,9 +834,10 @@ def check_errors():
     <ol>
       <li><b>Face Removal:</b>
         <ul>
-          <li>Press hidden release tabs at temples (↖↙)</li>
+          <li>Unscrew release tabs at temples (↖↙)</li>
+          <li>Unscrew eyelids at servo horn and front of mechanism (↖↙)</li>
           <li>Gently peel from forehead downward</li>
-          <li>Disconnect 24-pin FPC cable (45° pull)</li>
+          <li>Disconnect lip corner rigs</li>
         </ul>
       </li>
       
@@ -871,16 +937,16 @@ def check_errors():
     <ul>
       <li>🔩 <b>Standardized Interfaces:</b>
         <ul>
-          <li>All joints use 35×35mm mounting pattern</li>
+          <li>All joints use similar mounting pattern</li>
           <li>Universal M3 insert cavities (5.2mm Ø)</li>
           <li>Keyed connectors prevent misassembly</li>
         </ul>
       </li>
       <li>🧩 <b>Service-Friendly Design:</b>
         <ul>
-          <li>Split-plane topology for partial replacements</li>
-          <li>Sacrificial shear ribs on high-stress parts</li>
-          <li>Color-coded alignment markers</li>
+          <li>Gearboxes easily disassembled + replaceable bearings & gears</li>
+          <li>Spare parts are easy to find and get ahold of</li>
+          <li>Screwdriver access for Animatronic Skull</li>
         </ul>
       </li>
     </ul>
@@ -893,7 +959,7 @@ def check_errors():
     <tr><td>Gearboxes</td><td>/GearboxesABC-Sylvie2023</td><td>Size A,B,C Planetary Set</td><td>v3.0.0</td></tr>
     <tr><td>Upper Body</td><td>/UpperBodyFiles</td><td>Torso, Shoulders, etc.</td><td>v3.0.0</td></tr>
     <tr><td>Lower Body</td><td>/LowerBodyFiles</td><td>Hips, Legs, etc.</td><td>v3.0.0</td></tr>
-    <tr><td>Silicone Molding</td><td>/SiliconeFaceFiles</td><td>Insert Jig, Laser Alignment</td><td>v5.0.0</td></tr>
+    <tr><td>Silicone Molding</td><td>/SiliconeFaceFiles</td><td>Casting the Silicone Face</td><td>v5.0.0</td></tr>
   </table>
   </div>
 
@@ -904,8 +970,8 @@ def check_errors():
       <li><b>Gears:</b> 
         <ul>
           <li>Vertical orientation (Z-axis)</li>
-          <li>Raft required (0.3mm airgap)</li>
-          <li>0% infill until final 5 layers</li>
+          <li>Skirt, no Brim</li>
+          <li>30%-100% Cubic infill</li>
         </ul>
       </li>
       <li><b>Structural Members:</b>
@@ -944,15 +1010,15 @@ def check_errors():
     <h4>Critical Updates</h4>
     <div class="changelog-excerpt">
       <code>
-        2024-06-15 v2.1.7<br>
-        - Increased gear tooth root radius by 0.2mm<br>
-        - Added stress relief grooves to Size C carrier<br>
-        - NEW test print: torque_validation_2.1.stl
+        2025-01-01 v3.0.0<br>
+        - Lower overall weight for joints and body frame<br>
+        - Improved balancing stability, in preparation for walk test<br>
+        - Ollama DeepSeek R1 and Qwen 2.5 integration (coming soon)
       </code>
     </div>
   </div>
 
-  <h3 class="subsection-title">Validation Prints</h3>
+<!--  <h3 class="subsection-title">Validation Prints</h3>
   <div class="testing">
     <ul>
       <li><b>Fit Check:</b>
@@ -968,7 +1034,7 @@ def check_errors():
         </ul>
       </li>
     </ul>
-  </div>
+  </div>-->
 
   <h3 class="subsection-title">Post-Processing</h3>
   <div class="post-processing">
@@ -997,11 +1063,11 @@ def check_errors():
   <h3 class="subsection-title">Legacy Parts</h3>
   <div class="legacy">
     <ul>
-      <li><b>Deprecated:</b> /archive/pre-2023</li>
+      <li><b>Deprecated:</b> /archive/pre-2021</li>
       <li><b>Known Issues:</b>
         <ul>
-          <li>v1.0 hip joints (stress fractures)</li>
-          <li>v0.5 finger assemblies (stiction)</li>
+          <li>Gearboxes A-B too small for leg joints</li>
+          <li>Silicone Face lack of realism, fluidity</li>
         </ul>
       </li>
     </ul>
@@ -1024,6 +1090,6 @@ def check_errors():
     var mainElement = document.querySelector('main');
     mainElement.classList.add('fade-in');
   </script>
-  <script src="/java/main.js?v=14.08"></script>
+  <script src="/java/main.js?v=14.17"></script>
 </body>
 </html>

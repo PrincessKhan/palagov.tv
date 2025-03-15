@@ -207,12 +207,13 @@ topMenu.innerHTML = `
 `;
 
 //    <a href="/longform/">🎥 Longform Content</a>   
+//     <a href="/press/article1_feb32025.html">📖 Promethean Tenets</a>
 
 const sideMenu = document.getElementById('side-menu');
 sideMenu.innerHTML = `	
     <a href="https://ollama.com/thirdeyeai/qwen2.5-1.5b-instruct-uncensored">🦙 Qwen 2.5 Uncensored</a>	
-	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>		
-    <a href="/press/article1_feb32025.html">📖 Promethean Tenets</a>	
+	<a href="/#chalk-tweeter">👩🏽‍🏫 Chalkboard Tweeter</a>			
+    <a href="https://quran.com/en">📖 The Noble Quran</a>
 	<a href="/press/piracy-sources.html">💾 Piracy Sources</a>			
 	<a href="/#latest-music">🎼 Music Library</a>	
 	<a href="https://git.palagov.tv/khanumballz/palagov.tv">👩🏽‍💻 Source Code <font color="red">(Fixed!)</font></a>
@@ -805,7 +806,7 @@ if (videoShuffleEnabled == true) {
 			}
 
 			drawMap();
-				displayMessage("Welcome to the Island, and welcome to the Promethean Khalifate. -- -- Prophet Princess Khan, as a Queer supporter of Palestinian Liberation and Independence, saw the contradictions inherent to the Queers for Palestine movement, and set out to create a Faith that could enable Gender Non-Conforming Individuals to partake in the Rituals of Islam, without causing Friction among traditional Muslims. -- -- We embrace Mysticism, Psionics, Arcane Engineering, and Self-Empowerment Programs as a means of surviving the precarity of our respective Timelines. -- -- Each Promethean Kiranite ought to be as powerful and capable as 1,000 Human Beings. -- -- The Singularity is just around the Corner -- so set aside your differences, grab a coffee, and buckle up -- -- It's going to be one Hell of a turbulent Ride! -- -- -- --  💠✈️   ----Mary Hail 370----  ✈️💠");
+				displayMessage("🏝️🤲 🐎🔥👑🤝 -- 👸📜✨✊🏽 🌈🫂 🇵🇸🕊️ 🧐⚖️ 🌈🤷🏽‍♂️🇵🇸 🪨💥 🛠️📖☪️ 🚹🚺👐🏼 🕌🤲 ➡️ 🤝🕊️ -- 🧿🔮🧠⚡⚙️ 🏋🏽‍♀️💪🛡️ 🫶🏼⏳ -- 🔥⚔️👤 👉🏼 1️⃣0️⃣0️⃣0️⃣👥 -- 🤖🚀➡️⚡🌀 🤝🥤⏳✈️ 🚄🔥🪨   -- -- -- --   💠🌊           ☝🏼⚡          🌊💠");
 		} catch (error) {
 			console.error('Error loading the map:', error);
 		}
