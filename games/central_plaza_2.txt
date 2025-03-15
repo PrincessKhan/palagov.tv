@@ -1,0 +1,32 @@
+20 10
+P 1 1
+
+S 3 3 "a scroll that says: You are now in the Central Plaza of Starlight Cove, the Capital of the Principality of Pāla -- the first Settlement of the Promethean Kiranites on the Island! Behind you is a Garden Bed full of Roses and ornamental Plants -- all shaped and arranged in such a way, so as to commemorate the Heroes of the War in Gaza, as well as the victims of the Israeli Genocide against the Palestinian People. You should be able to see it from the top of the Mountains, or by simply flying a Drone over it!"
+
+S 4 6 "a scroll that says: Princess Khan, Supreme Leader of Pāla, was never a big Fan of the Automobile. Not only did she believe that Cars were responsible for Greenhouse Gas Emissions, the declining quality of our Air, and the Rise of global Temperatures -- but she also believed they were responsible for the Obesity Epidemic, for the Loneliness Epidemic and even the Housing Crisis! It is for this reason that every Pālave⃑an Road, and Street, has to be neatly lined with Bricks, ideally with a bit of grass sticking out from between the cracks. Just to do away with the Brutalist and Dystopian Atmosphere of the Vapid, Soulless, Consumerist Wasteland she used to inhabit all her Life; the Car-dependent, Modern World! -- -- Pālave⃑an cities are all 15-Minute-Cities that are not only walkable, but also easy to leave by simply hopping on the Autonomous Train that runs 24/7, with the help of rather simple Software and State-of-the-Art Cognitive Computing Models."
+
+S 2 8 "a scroll that says: The Israel Defense Force (IDF) has committed a multitude of genocidal War-Crimes -- including, but not limited to: -- 1. Raping women, 2. Indiscriminately shooting at children, and civilians, even after the ceasefire. 3. Posing for photos while wearing the stolen underwear of dead women. 4. Leaving boobytrapped cans of food out in parts of Gaza. 5. Burying civilians in rubble following massive carpet-bombing campaigns in Gaza and Lebanon. 6. Preventing foreign aid from entering Gaza. 7. Conspiring to ethnically cleanse Arab Muslims in Palestine, and relocate the survivors to Egypt and Jordan. 8. Murdering, and assaulting journalists. 9. Torturing prisoners. -- And the list goes on, and on. -- Don't believe me? -- -- Do your own research!"
+
+C 18 2 "a replica Suitcase containing a Balaclava, a Machine Gun, and a Green Headband, from the Intifada Museum -- -- Allah is the Mightiest!"
+
+C 18 7 "a replica Souvenir Bag from Hamas, from the Intifada Museum. -- -- Happy Hostage Exchange!"
+
+D 19 1 "../games/map1_sep302024_v5.txt"
+
+D 19 8 "../games/map1_dec152024_v4.txt"
+
+E 19 3 "player1_feb22025"
+
+E 19 6 "player1_feb132025"
+
+####################
+#@.................D
+###.##############C#
+###S...............E
+#####..............#
+######.............#
+####S..............E
+####.#############C#
+##S................D
+####################
+
